@@ -1,0 +1,21 @@
+.main-columns{
+    background-color: purple;
+    margin: 15vh;
+}
+.div-balance, .div-filters, .div-operations{
+    padding: 4vh;
+    border-radius: 2%;
+}
+.div-balance{
+    height: 50vh;
+    background-color: yellow;
+}
+.div-filters{
+    height: 65vh;
+    background-color: orange;
+    margin-top: 5vh;
+}
+.div-operations{
+    height: 100vh;
+    background-color: aqua;
+}
