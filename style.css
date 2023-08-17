@@ -19,3 +19,21 @@
     height: 100vh;
     background-color: aqua;
 }
+.div{
+    background-color: pink;
+    display: flex;
+    flex-direction: row;
+    margin-top: 5vh;
+}
+.profits :last-child{
+    color: green;
+}
+.expenses :last-child{
+    color: red;
+}
+.operation-img{
+    display: flex;
+    justify-content: center;
+}
+.operation-img img{
+}

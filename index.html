@@ -14,18 +14,38 @@
         <section class="main-columns columns">
             <section class="column is-4">
                 <div class="div-balance">
-                    <p>Balance</p>
+                    <p class="is-size-2 has-text-weight-bold">Balance</p>
+                    <div class="balance-container">
+                        <div class="div profits is-justify-content-space-between">
+                            <p class="is-size-5">Ganancias</p>
+                            <p class="is-size-5">+$</p>
+                        </div>
+                        <div class="div expenses is-justify-content-space-between">
+                            <p class="is-size-5">Gastos</p>
+                            <p class="is-size-5">-$</p>
+                        </div>
+                        <div class="div total is-justify-content-space-between">
+                            <p class="is-size-5 has-text-weight-semibold">Total</p>
+                            <p class="is-size-5 has-text-weight-semibold">$</p>
+                        </div>
+
+                    </div>
                 </div>
                 <div class="div-filters is-flex is-justify-content-space-between">
-                    <p>Filtros</p>
+                    <p class="is-size-3 has-text-weight-bold">Filtros</p>
                     <button class="button">ocultar filtros</button>
 
                 </div>
             </section>
             <section class="column">
-                <div class="div-operations container is-flex is-justify-content-space-between">
-                    <p>Operaciones</p>
-                    <button class="button">Button</button>
+                <div class="div-operations container is-flex-direction-column">
+                    <div class="is-flex is-justify-content-space-between">
+                        <p class="is-size-3 has-text-weight-bold">Operaciones</p>
+                        <button class="button">+ Nueva Operacion</button>
+                    </div>
+                    <figure class="operation-img">
+                        <img src="img/Finance app-amico.png" width="450px" height="450px">
+                    </figure>
                 </div>
             </section>
         </section>
