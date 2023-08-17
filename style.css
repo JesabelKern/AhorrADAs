@@ -35,5 +35,11 @@
     display: flex;
     justify-content: center;
 }
-.operation-img img{
+.filters-div-list ul{
+    background-color: seagreen;
+    margin-top: 3vh;
+    /* height: 50vh; */
+}
+ul li{
+    margin-bottom: 5vh;
 }

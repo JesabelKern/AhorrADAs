@@ -31,10 +31,50 @@
 
                     </div>
                 </div>
-                <div class="div-filters is-flex is-justify-content-space-between">
-                    <p class="is-size-3 has-text-weight-bold">Filtros</p>
-                    <button class="button">ocultar filtros</button>
-
+                <div class="div-filters">
+                    <div class="is-flex is-justify-content-space-between">
+                        <p class="is-size-3 has-text-weight-bold">Filtros</p>
+                        <button class="button">ocultar filtros</button>
+                    </div>
+                    <div class="filters-div-list">
+                        <ul>
+                            <li>
+                                <p class="has-text-weight-medium">Tipo</p>
+                                <select>
+                                    <option value="gasto">Gasto</option>
+                                    <option value="ganancia">Ganancia</option>
+                                </select>
+                            </li>
+                            <li>
+                                <p class="has-text-weight-medium">Categoria</p>
+                                <select>
+                                    <option value="comida">Comida</option>
+                                    <option value="servicios">Servicios</option>
+                                    <option value="salidas">Salidas</option>
+                                    <option value="educacion">Educacion</option>
+                                    <option value="transporte">Transporte</option>
+                                    <option value="trabajo">Trabajo</option>
+                                    <option value="medicina">Medicina</option>
+                                    <option value="otros">Otros</option>
+                                </select>
+                            </li>
+                            <li>
+                                <p class="has-text-weight-medium">Desde</p>
+                                <input type="date" id="input-date" value="08-17-2023" min="08-17-2023">
+                            </li>
+                            <li>
+                                <p class="has-text-weight-medium">Ordenar por</p>
+                                <select>
+                                    <option value="masreciente">Mas reciente</option>
+                                    <option value="menosreciente">Menos reciente</option>
+                                    <option value="mayor">Mayor monto</option>
+                                    <option value="menor">Menor monto</option>
+                                    <option value="az">A-Z</option>
+                                    <option value="za">Z-A</option>
+                                </select>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </section>
             <section class="column">
