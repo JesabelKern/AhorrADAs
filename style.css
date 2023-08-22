@@ -1,0 +1,7 @@
+/* STYLE FOR NEW OPERATION */
+.main-new-operation{
+    background-color: rebeccapurple;
+    height: 100vh;
+    width: 60vw;
+    margin-top: 10vh;  /*CAMBIAR UNA VEZ OBTENIDO EL NAVBAR*/
+}
