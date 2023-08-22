@@ -1,7 +1,7 @@
 /* STYLE FOR NEW OPERATION */
 .main-new-operation{
     background-color: rgb(231, 255, 182);
-    height: 100vh;
+    height: 93vh;
     width: 60vw;
     margin-top: 10vh;  /*CAMBIAR UNA VEZ OBTENIDO EL NAVBAR*/
 }
@@ -11,6 +11,10 @@
 }
 ul li{
     margin-bottom: 3vh;
+    height: 10vh;
+}
+li p {
+    margin-bottom: 2vh;
 }
 input, select{
     width: 100%;
