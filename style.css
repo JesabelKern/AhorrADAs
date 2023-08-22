@@ -1,3 +1,4 @@
+/* STYLE FOR BALANCE */
 .main-columns{
     background-color: purple;
     margin: 15vh;
@@ -38,8 +39,19 @@
 .filters-div-list ul{
     background-color: seagreen;
     margin-top: 3vh;
-    /* height: 50vh; */
 }
 ul li{
-    margin-bottom: 5vh;
+    margin-bottom: 3vh;
+}
+select, #input-date{
+    width: 100%;
+    height: 5vh;
+}
+
+/* STYLE FOR NEW OPERATION */
+.main-new-operation{
+    background-color: rebeccapurple;
+    height: 100vh;
+    width: 60vw;
+    margin-top: 10vh;  /*CAMBIAR UNA VEZ OBTENIDO EL NAVBAR*/
 }
