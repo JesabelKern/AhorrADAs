@@ -55,101 +55,101 @@
         </nav>
     </header>
     <!-- FIN BARRA DE NAVEGACIÓN ... COMIENZO DEL MAIN -->
-        <!-- VISTA BALANCE  -->
-        <main class="container main-balance">
-            <section class="main-columns columns">
-                <section class="section-balance column is-3">
-                    <div class="div-balance">
-                        <p class="is-size-2 has-text-weight-bold">Balance</p>
-                        <div class="balance-container">
-                            <div class="div profits is-justify-content-space-between">
-                                <p class="is-size-5">Ganancias</p>
-                                <p class="is-size-5">+$</p>
-                            </div>
-                            <div class="div expenses is-justify-content-space-between">
-                                <p class="is-size-5">Gastos</p>
-                                <p class="is-size-5">-$</p>
-                            </div>
-                            <div class="div total is-justify-content-space-between">
-                                <p class="is-size-5 has-text-weight-semibold">Total</p>
-                                <p class="is-size-5 has-text-weight-semibold">$</p>
-                            </div>
+    <!-- VISTA BALANCE  -->
+    <main class="container main-balance">
+        <section class="main-columns columns">
+            <section class="section-balance column is-3">
+                <div class="div-balance">
+                    <p class="is-size-2 has-text-weight-bold">Balance</p>
+                    <div class="balance-container">
+                        <div class="div profits is-justify-content-space-between">
+                            <p class="is-size-5">Ganancias</p>
+                            <p class="is-size-5">+$</p>
+                        </div>
+                        <div class="div expenses is-justify-content-space-between">
+                            <p class="is-size-5">Gastos</p>
+                            <p class="is-size-5">-$</p>
+                        </div>
+                        <div class="div total is-justify-content-space-between">
+                            <p class="is-size-5 has-text-weight-semibold">Total</p>
+                            <p class="is-size-5 has-text-weight-semibold">$</p>
                         </div>
                     </div>
-                    <div class="div-filters">
-                        <div class="is-flex is-justify-content-space-between">
-                            <p class="is-size-3 has-text-weight-bold">Filtros</p>
-                            <button class="button is-small">ocultar filtros</button>
-                        </div>
-                        <div class="filters-div-list">
-                            <ul>
-                                <li>
-                                    <p class="has-text-weight-medium">Tipo</p>
-                                    <select>
-                                        <option value="gasto">Gasto</option>
-                                        <option value="ganancia">Ganancia</option>
-                                    </select>
-                                </li>
-                                <li>
-                                    <p class="has-text-weight-medium">Categoria</p>
-                                    <select>
-                                        <option value="comida">Comida</option>
-                                        <option value="servicios">Servicios</option>
-                                        <option value="salidas">Salidas</option>
-                                        <option value="educacion">Educacion</option>
-                                        <option value="transporte">Transporte</option>
-                                        <option value="trabajo">Trabajo</option>
-                                        <option value="medicina">Medicina</option>
-                                        <option value="otros">Otros</option>
-                                    </select>
-                                </li>
-                                <li>
-                                    <p class="has-text-weight-medium">Desde</p>
-                                    <input type="date" id="input-date" value="2023-08-17" min="2023-08-17">
-                                </li>
-                                <li>
-                                    <p class="has-text-weight-medium">Ordenar por</p>
-                                    <select>
-                                        <option value="masreciente">Mas reciente</option>
-                                        <option value="menosreciente">Menos reciente</option>
-                                        <option value="mayor">Mayor monto</option>
-                                        <option value="menor">Menor monto</option>
-                                        <option value="az">A-Z</option>
-                                        <option value="za">Z-A</option>
-                                    </select>
-                                </li>
-                            </ul>
-                        </div>
+                </div>
+                <div class="div-filters">
+                    <div class="is-flex is-justify-content-space-between">
+                        <p class="is-size-3 has-text-weight-bold">Filtros</p>
+                        <button class="button is-small">ocultar filtros</button>
                     </div>
-                </section>
-                <section class="column">
-                    <div class="div-operations container is-flex-direction-column">
-                        <div class="is-flex is-justify-content-space-between">
-                            <p class="is-size-3 has-text-weight-bold">Operaciones</p>
-                            <button class="button">+ Nueva Operacion</button>
-                        </div>
-                        <!-- <figure class="operation-img">
+                    <div class="filters-div-list">
+                        <ul>
+                            <li>
+                                <p class="has-text-weight-medium">Tipo</p>
+                                <select>
+                                    <option value="gasto">Gasto</option>
+                                    <option value="ganancia">Ganancia</option>
+                                </select>
+                            </li>
+                            <li>
+                                <p class="has-text-weight-medium">Categoria</p>
+                                <select>
+                                    <option value="comida">Comida</option>
+                                    <option value="servicios">Servicios</option>
+                                    <option value="salidas">Salidas</option>
+                                    <option value="educacion">Educacion</option>
+                                    <option value="transporte">Transporte</option>
+                                    <option value="trabajo">Trabajo</option>
+                                    <option value="medicina">Medicina</option>
+                                    <option value="otros">Otros</option>
+                                </select>
+                            </li>
+                            <li>
+                                <p class="has-text-weight-medium">Desde</p>
+                                <input type="date" id="input-date" value="2023-08-17" min="2023-08-17">
+                            </li>
+                            <li>
+                                <p class="has-text-weight-medium">Ordenar por</p>
+                                <select>
+                                    <option value="masreciente">Mas reciente</option>
+                                    <option value="menosreciente">Menos reciente</option>
+                                    <option value="mayor">Mayor monto</option>
+                                    <option value="menor">Menor monto</option>
+                                    <option value="az">A-Z</option>
+                                    <option value="za">Z-A</option>
+                                </select>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            <section class="column">
+                <div class="div-operations container is-flex-direction-column">
+                    <div class="is-flex is-justify-content-space-between">
+                        <p class="is-size-3 has-text-weight-bold">Operaciones</p>
+                        <button class="button">+ Nueva Operacion</button>
+                    </div>
+                    <!-- <figure class="operation-img">
                         <img src="img/Finance app-amico.png" width="450px" height="450px">
                     </figure> -->
-                        <section class="column-of-new-operation columns is-justify-content-space-between">
-                            <div class="column has-text-left">
-                                Descripcion
-                            </div>
-                            <div class="column has-text-left">
-                                Categoria
-                            </div>
-                            <div class="column has-text-right">
-                                Fecha
-                            </div>
-                            <div class="column has-text-right">
-                                Monto
-                            </div>
-                            <div class="column has-text-right">
-                                Acciones
-                            </div>
-                        </section>
-                        <section class="column-of-each-operation columns is-justify-content-space-between">
-                            <!-- <div class="column has-text-left is-flex-wrap-wrap">
+                    <section class="column-of-new-operation columns is-justify-content-space-between">
+                        <div class="column has-text-left">
+                            Descripcion
+                        </div>
+                        <div class="column has-text-left">
+                            Categoria
+                        </div>
+                        <div class="column has-text-right">
+                            Fecha
+                        </div>
+                        <div class="column has-text-right">
+                            Monto
+                        </div>
+                        <div class="column has-text-right">
+                            Acciones
+                        </div>
+                    </section>
+                    <section class="column-of-each-operation columns is-justify-content-space-between">
+                        <!-- <div class="column has-text-left is-flex-wrap-wrap">
                             <p>supermercado</p>
                         </div>
                         <div class="column has-text-left">
@@ -165,11 +165,11 @@
                             <button class="button is-text is-small">Editar</button>
                             <button class="button is-text is-small">Eliminar</button>                          
                         </div> -->
-                    </div>
-                </section>
+                </div>
             </section>
-        </main>
-        <script src="main.js"></script>
+        </section>
+    </main>
+    <script src="main.js"></script>
 </body>
 
 </html>
