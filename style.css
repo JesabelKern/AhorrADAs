@@ -92,3 +92,7 @@ select, #input-date{
 .hide{
     display: none;
 }
+.reports-img{
+    display: flex;
+    justify-content: center;
+}
