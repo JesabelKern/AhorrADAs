@@ -123,6 +123,7 @@
                 </div>
             </section>
             
+            
             <section class="column">
                 <div class="div-operations container is-flex-direction-column">
                     <div class="is-flex is-justify-content-space-between">
@@ -169,6 +170,48 @@
                 </div>
             </section>
         </section>
+    </main>
+    <!-- VISTA NUEVA OPERACION -->
+    <main class="container main-new-operation">
+        <p class="is-size-2 has-text-weight-bold">Nueva Operacion</p>
+        <div class="new-operation-content">
+            <ul>
+                <li>
+                    <p class="has-text-weight-semibold">Descripcion</p>
+                    <input type="text" id="input-text-description">
+                </li>
+                <li>
+                    <p class="has-text-weight-semibold">Monto</p>
+                    <input type="number" id="input-number-amount" value="0">
+                </li>
+                <li>
+                    <p class="has-text-weight-semibold">Tipo</p>
+                    <select>
+                        <option value="gasto">Gasto</option>
+                        <option value="ganancia">Ganancia</option>
+                    </select>
+                </li>
+                <li>
+                    <p class="has-text-weight-semibold">Categoria</p>
+                    <select>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                    </select>
+                </li>
+                <li>
+                    <p class="has-text-weight-semibold">Fecha</p>
+                    <input type="date" id="input-date">
+                </li>
+            </ul>
+            <div class="buttons-cancel-add">
+                <button class="button">Cancelar</button>
+                <button class="button">Agregar</button>
+            </div>
+        </div>
     </main>
     <script src="main.js"></script>
 </body>
