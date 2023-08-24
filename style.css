@@ -17,7 +17,7 @@
     margin-top: 5vh;
 }
 .div-operations{
-    height: 100vh;
+    height: max-content;
     background-color: aqua;
 }
 .div{
@@ -47,4 +47,27 @@ select, #input-date{
     width: 100%;
     height: 5vh;
 }
+.column-of-new-operation{
+    background-color: yellow;
+    margin-top: 4vh;
+}
+.column-of-new-operation{
+background-color: rebeccapurple;
+}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+.hide{
+    display: none;
+}
