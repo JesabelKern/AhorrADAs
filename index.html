@@ -2,14 +2,175 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📈</text></svg>" />
+    <!-- LINK BULMA -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
+    <!-- LINK FOTAWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+        integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+        crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css" />
+    <title>AhorrADAs</title>
 </head>
 
 <body>
+    <!-- NAVBAR -->
+    <header>
+        <nav class="navbar navbar has-shadow is-spaced is-info" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="">
+                    <h1 class="title is-size-2-desktop is-size-3 has-text-white">
+                        <i class="fas fa-wallet mr-2" aria-hidden="true"></i>
+                        AhorrADAs
+                    </h1>
+                </a>
+                <div class="navbar-burguer burguer">
+                    <button id="boton-hamburguesa" role="button" class="navbar-burger mt-2" aria-label="menu"
+                        aria-expanded="false" data-target="navbarBasicExample">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </button>
+                </div>
+            </div>
+            <div class="navbar-menu">
+                <div class="navbar-end">
+                    <a class="navbar-item" id="see-balance">
+                        <i class="fas fa-chart-line mr-2" aria-hidden="true"></i>
+                        Balance
+                    </a>
+                    <a class="navbar-item" id="see-categories">
+                        <i class="fas fa-tag mr-2" aria-hidden="true"></i>
+                        Categorías
+                    </a>
+                    <a class="navbar-item" id="see-reports">
+                        <i class="fas fa-chart-pie mr-2" aria-hidden="true"></i>
+                        Reportes
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- FIN BARRA DE NAVEGACIÓN ... COMIENZO DEL MAIN -->
+    <!-- VISTA BALANCE  -->
+    <main class="container main-balance">
+        <section class="main-columns columns">
+            <section class="section-balance column is-3">
+                <div class="div-balance">
+                    <p class="is-size-2 has-text-weight-bold">Balance</p>
+                    <div class="balance-container">
+                        <div class="div profits is-justify-content-space-between">
+                            <p class="is-size-5">Ganancias</p>
+                            <p class="is-size-5">+$</p>
+                        </div>
+                        <div class="div expenses is-justify-content-space-between">
+                            <p class="is-size-5">Gastos</p>
+                            <p class="is-size-5">-$</p>
+                        </div>
+                        <div class="div total is-justify-content-space-between">
+                            <p class="is-size-5 has-text-weight-semibold">Total</p>
+                            <p class="is-size-5 has-text-weight-semibold">$</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="div-filters">
+                    <div class="is-flex is-justify-content-space-between">
+                        <p class="is-size-3 has-text-weight-bold">Filtros</p>
+                        <button class="button is-small">ocultar filtros</button>
+                    </div>
+                    <div class="filters-div-list">
+                        <ul>
+                            <li>
+                                <p class="has-text-weight-medium">Tipo</p>
+                                <select>
+                                    <option value="gasto">Gasto</option>
+                                    <option value="ganancia">Ganancia</option>
+                                </select>
+                            </li>
+                            <li>
+                                <p class="has-text-weight-medium">Categoria</p>
+                                <select>
+                                    <option value="comida">Comida</option>
+                                    <option value="servicios">Servicios</option>
+                                    <option value="salidas">Salidas</option>
+                                    <option value="educacion">Educacion</option>
+                                    <option value="transporte">Transporte</option>
+                                    <option value="trabajo">Trabajo</option>
+                                    <option value="medicina">Medicina</option>
+                                    <option value="otros">Otros</option>
+                                </select>
+                            </li>
+                            <li>
+                                <p class="has-text-weight-medium">Desde</p>
+                                <input type="date" id="input-date" value="2023-08-17" min="2023-08-17">
+                            </li>
+                            <li>
+                                <p class="has-text-weight-medium">Ordenar por</p>
+                                <select>
+                                    <option value="masreciente">Mas reciente</option>
+                                    <option value="menosreciente">Menos reciente</option>
+                                    <option value="mayor">Mayor monto</option>
+                                    <option value="menor">Menor monto</option>
+                                    <option value="az">A-Z</option>
+                                    <option value="za">Z-A</option>
+                                </select>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            
+            <section class="column">
+                <div class="div-operations container is-flex-direction-column">
+                    <div class="is-flex is-justify-content-space-between">
+                        <p class="is-size-3 has-text-weight-bold">Operaciones</p>
+                        <button class="button">+ Nueva Operacion</button>
+                    </div>
+                    <!-- <figure class="operation-img">
+                        <img src="img/Finance app-amico.png" width="450px" height="450px">
+                    </figure> -->
+                    <section class="column-of-new-operation columns is-justify-content-space-between">
+                        <div class="column has-text-left">
+                            Descripcion
+                        </div>
+                        <div class="column has-text-left">
+                            Categoria
+                        </div>
+                        <div class="column has-text-right">
+                            Fecha
+                        </div>
+                        <div class="column has-text-right">
+                            Monto
+                        </div>
+                        <div class="column has-text-right">
+                            Acciones
+                        </div>
+                    </section>
+                    <section class="column-of-each-operation columns is-justify-content-space-between">
+                        <!-- <div class="column has-text-left is-flex-wrap-wrap">
+                            <p>supermercado</p>
+                        </div>
+                        <div class="column has-text-left">
+                            <p>Categoria</p>
+                        </div>
+                        <div class="column has-text-right">
+                            <p>fladksjfa</p>
+                        </div>
+                        <div class="column has-text-right">
+                            <p>fladksjfa</p>
+                        </div>
+                        <div class="column has-text-right">
+                            <button class="button is-text is-small">Editar</button>
+                            <button class="button is-text is-small">Eliminar</button>                          
+                        </div> -->
+                </div>
+            </section>
+        </section>
+    </main>
     <!-- VISTA NUEVA OPERACION -->
     <main class="container main-new-operation">
         <p class="is-size-2 has-text-weight-bold">Nueva Operacion</p>
@@ -52,8 +213,6 @@
             </div>
         </div>
     </main>
-
-
     <script src="main.js"></script>
 </body>
 
