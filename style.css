@@ -1,3 +1,114 @@
+/* STYLE FOR BALANCE */
+.main-columns{
+    background-color: purple;
+    margin: 15vh;
+}
+.div-balance, .div-filters, .div-operations{
+    padding: 4vh;
+    border-radius: 2%;
+}
+.div-balance{
+    height: 50vh;
+    background-color: yellow;
+}
+.div-filters{
+    height: 65vh;
+    background-color: orange;
+    margin-top: 5vh;
+}
+.div-operations{
+    height: max-content;
+    background-color: aqua;
+}
+.div{
+    background-color: pink;
+    display: flex;
+    flex-direction: row;
+    margin-top: 5vh;
+}
+.profits :last-child{
+    color: green;
+}
+.expenses :last-child{
+    color: red;
+}
+.operation-img{
+    display: flex;
+    justify-content: center;
+}
+.filters-div-list ul{
+    background-color: seagreen;
+    margin-top: 3vh;
+}
+ul li{
+    margin-bottom: 3vh;
+}
+select, #input-date{
+    width: 100%;
+    height: 5vh;
+}
+.column-of-new-operation{
+    background-color: yellow;
+    margin-top: 4vh;
+}
+.column-of-new-operation div{
+    background-color: rgb(199, 181, 217);
+    margin: 1vh;
+}
+.column-of-each-operation{
+    background-color: rgba(247, 247, 247, 0.674);
+    margin-top: 1vh;
+    border-radius: 5px;
+}
+.column-of-each-operation div{
+    height: 14vh;
+    margin: 1vh;
+    position: relative;
+}
+.column-of-each-operation p{
+    position: absolute;
+    top: 50%;
+    margin-top: -12px;
+    height: fit-content;
+}
+/* STYLE FOR NEW OPERATION */
+.main-new-operation{
+    background-color: rgb(231, 255, 182);
+    height: 93vh;
+    width: 60vw;
+    margin-top: 10vh;  /*CAMBIAR UNA VEZ OBTENIDO EL NAVBAR*/
+}
+.new-operation-content{
+    background-color: red;
+    margin: 5vh;
+}
+ul li{
+    margin-bottom: 3vh;
+    height: 10vh;
+}
+li p {
+    margin-bottom: 1vh;
+}
+input, select{
+    width: 100%;
+    height: 7vh;
+}
+.buttons-cancel-add{
+    margin-top: 5vh;
+}
+
+
+
+
+
+
+
+
+
+
+.hide{
+    display: none;
+}
 .reports-img{
     display: flex;
     justify-content: center;
