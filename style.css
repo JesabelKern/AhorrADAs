@@ -1,6 +1,26 @@
+body{
+    background-image: linear-gradient(to top, #3c1855, #481f58, #54275b, #5e2f5e, #683762, #774369, #855070, #935d77, #a97284, #bd8892, #d09fa2, #e3b7b4);
+}
+.navbar{
+    background-color: #4f295a;
+    color: white;
+}
+.navbar-end button{
+    background-color: #653a71;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    margin-left: 3vh;
+}
+.button{
+    background-color: #726665;
+    color: white;
+    border: 3vh;
+}
+
+
 /* STYLE FOR BALANCE */
 .main-columns{
-    background-color: purple;
     margin: 15vh;
 }
 .div-balance, .div-filters, .div-operations{
@@ -9,36 +29,41 @@
 }
 .div-balance{
     height: 50vh;
-    background-color: yellow;
+    background-color: #ffe3d8;
 }
 .div-filters{
+    background-color: #ffe3d8;
     height: 65vh;
-    background-color: orange;
     margin-top: 5vh;
 }
 .div-operations{
     height: max-content;
-    background-color: aqua;
+    background-color: #ffe3d8;
 }
 .div{
-    background-color: pink;
     display: flex;
     flex-direction: row;
     margin-top: 5vh;
 }
-.profits :last-child{
+/* .profits :last-child{
     color: green;
 }
 .expenses :last-child{
     color: red;
-}
+} */
 .operation-img{
     display: flex;
     justify-content: center;
 }
-.filters-div-list ul{
-    background-color: seagreen;
-    margin-top: 3vh;
+.div-filters select, .div-filters input{
+    border-style: solid black 5px;
+    border-radius: 1vh;
+}
+.button-hide-filters{
+    margin-top: 13px;
+    padding: 5px;
+    margin-right: -17px;
+    border-radius: 10px;
 }
 ul li{
     margin-bottom: 3vh;
@@ -48,11 +73,9 @@ select, #input-date{
     height: 5vh;
 }
 .column-of-new-operation{
-    background-color: yellow;
     margin-top: 4vh;
 }
 .column-of-new-operation div{
-    background-color: rgb(199, 181, 217);
     margin: 1vh;
 }
 .column-of-each-operation{
@@ -71,15 +94,22 @@ select, #input-date{
     margin-top: -12px;
     height: fit-content;
 }
+
+
+
 /* STYLE FOR NEW OPERATION */
+.title-new-operation{
+    color: #3C1855;
+    margin-left: 3vh;
+}
 .main-new-operation{
-    background-color: rgb(231, 255, 182);
+    background-color: #ffe3d8;
     height: 93vh;
     width: 60vw;
+    border-radius: 5px;
     margin-top: 10vh;  /*CAMBIAR UNA VEZ OBTENIDO EL NAVBAR*/
 }
 .new-operation-content{
-    background-color: red;
     margin: 5vh;
 }
 ul li{
@@ -90,26 +120,65 @@ li p {
     margin-bottom: 1vh;
 }
 input, select{
+    border: solid black 1px;
+    border-radius: 1vh;
+    background-color: #ffffff;
     width: 100%;
     height: 7vh;
 }
 .buttons-cancel-add{
     margin-top: 5vh;
 }
-
-
-
-
-
-
-
-
-
-
-.hide{
-    display: none;
+.buttons-cancel-add :hover{
+    color: rgb(255, 255, 255);
 }
+
+
+
+/* STYLE FOR CATEGORIES */
+.box{
+    background-color: #ffe3d8;
+}
+.box h2{
+    color: #3C1855;
+}
+#categorie-input{
+    border: solid 1px;
+}
+#add-categorie-button:hover{
+    color: white;
+}
+.name-category span{
+    background-color: #ac92bf;
+    color: white;
+}
+.div-content-category a{
+    color: black;
+}
+
+
+
+/* STYLE FOR REPORTS */
 .reports-img{
     display: flex;
     justify-content: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* JAVASCRIPT */
+.hide{
+    display: none;
 }

@@ -1,6 +1,6 @@
 const $ = (selector) => document.querySelector(selector)
 
-const 
+
 
 const creationOfNewOperation = (listNewOperations) => {
     listNewOperations.forEach((operation) => {
