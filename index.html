@@ -91,7 +91,7 @@
                                 </select>
                             </li>
                             <li>
-                                <p class="has-text-weight-medium">Categoria</p>
+                                <p class="has-text-weight-medium categoria-select">Categoria</p>
                                 <select>
                                     <option value="comida">Comida</option>
                                     <option value="servicios">Servicios</option>
@@ -177,24 +177,24 @@
     <section class="container main-new-operation">
         <p class="is-size-2 has-text-weight-bold title-new-operation">Nueva Operacion</p>
         <div class="new-operation-content">
-            <ul>
-                <li>
-                    <p class="has-text-weight-semibold">Descripcion</p>
+            <form>
+                <div class="div-description-form">
+                    <label class="has-text-weight-semibold">Descripcion</label>
                     <input type="text" id="input-text-description">
-                </li>
-                <li>
-                    <p class="has-text-weight-semibold">Monto</p>
+                </div>
+                <div class="div-amount-form">
+                    <label class="has-text-weight-semibold">Monto</label>
                     <input type="number" id="input-number-amount" value="0">
-                </li>
-                <li>
-                    <p class="has-text-weight-semibold">Tipo</p>
+                </div>
+                <div class="div-type-form">
+                    <label class="has-text-weight-semibold">Tipo</label>
                     <select>
                         <option value="gasto">Gasto</option>
                         <option value="ganancia">Ganancia</option>
                     </select>
-                </li>
-                <li>
-                    <p class="has-text-weight-semibold">Categoria</p>
+                </div>
+                <div class="div-category-form">
+                    <label class="has-text-weight-semibold categoria-select">Categoria</label>
                     <select>
                         <option value=""></option>
                         <option value=""></option>
@@ -203,12 +203,54 @@
                         <option value=""></option>
                         <option value=""></option>
                     </select>
-                </li>
-                <li>
-                    <p class="has-text-weight-semibold">Fecha</p>
+                </div>
+                <div class="div-date-form">
+                    <label class="has-text-weight-semibold">Fecha</label>
                     <input type="date" id="input-date">
-                </li>
-            </ul>
+                </div>
+            </form>
+            <div class="buttons-cancel-add">
+                <button class="button">Cancelar</button>
+                <button class="button">Agregar</button>
+            </div>
+        </div>
+    </section>
+    <!-- VISTA EDITAR OPERACION -->
+    <section class="container main-new-operation">
+        <p class="is-size-2 has-text-weight-bold title-edit-operation">Editar Operacion</p>
+        <div class="edit-operation-content">
+            <form>
+                <div class="div-description-form edit">
+                    <label class="has-text-weight-semibold">Descripcion</label>
+                    <input type="text" id="input-text-description">
+                </div>
+                <div class="div-amount-form edit">
+                    <label class="has-text-weight-semibold">Monto</label>
+                    <input type="number" id="input-number-amount" value="0">
+                </div>
+                <div class="div-type-form edit">
+                    <label class="has-text-weight-semibold">Tipo</label>
+                    <select>
+                        <option value="gasto">Gasto</option>
+                        <option value="ganancia">Ganancia</option>
+                    </select>
+                </div>
+                <div class="div-category-form edit">
+                    <label class="has-text-weight-semibold categoria-select">Categoria</label>
+                    <select>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                    </select>
+                </div>
+                <div class="div-date-form edit">
+                    <label class="has-text-weight-semibold">Fecha</label>
+                    <input type="date" id="input-date">
+                </div>
+            </form>
             <div class="buttons-cancel-add">
                 <button class="button">Cancelar</button>
                 <button class="button">Agregar</button>
