@@ -1,4 +1,4 @@
-// FUNCIONES REUTILIZABLES
+// FUNCIONES REUTILIZABLES 
 
 const just = (selector) => document.querySelector(selector)
 const all = (selector) => document.querySelectorAll(selector)
