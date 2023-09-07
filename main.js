@@ -1,21 +1,6 @@
-const $ = (selector) => document.querySelector(selector)
+const just = (selector) => document.querySelector(selector)
+const all = (selector) => document.querySelectorAll(selector)
+const randomId = () => self.crypto.randomUUID();
 
 
 
-const creationOfNewOperation = (listNewOperations) => {
-    listNewOperations.forEach((operation) => {
-
-    })
-}
-
-
-
-const newOperations = [
-    {
-        id:'',
-        description:'',
-        category:'',
-        date:'',
-        amount:'',
-    }
-];
