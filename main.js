@@ -36,13 +36,14 @@ let categories = [
 // RECORRER Y AGREGAR CATEGORÍAS
 
 const listaCategorias = (category) => {
+    just('#list-categorie').innerHTML = ''
     for (let {nombre, id} of category) {
         just('#list-categorie').innerHTML += `
         <li class="tag has-text-weight-semibold is-flex is-justify-content-space-between">
                 <p>${nombre}</p>
                 <div class="column is-narrow has-text">
-                    <a href="#" class="mr-4 is-size-7 edit-link editor-button">Editar</a>
-                    <a href="#" class="is-size-7 delete-link">Eliminar</a>
+                <a href="#" onclick="editCategoryList('${id}')" id="${id}" class="mr-4 is-size-7 edit-link editor-button">Editar</a>
+                <a href="#" onclick="removeCategoryList('${id}')" id="${id}" class="is-size-7 delete-link">Eliminar</a>
                 </div>
         </li>`
     }
@@ -59,14 +60,35 @@ listaCategorias(categories)
 
 
 //EDITAR CATEGORIA
-
-all('.editor-button').forEach( (btn) => {
-    btn.addEventListener('click', () => 
-    just('#edit-categories').classList.remove("is-hidden"));
-    
-
-});
-
+            // AGREGA CLASE HIDDEN
+        
 all('#cancel-edit-category-btn').forEach( (btn) => {
     btn.addEventListener('click', () => just('#edit-categories').classList.add ("is-hidden"))
 });
+
+            // REMUEVE HIDDEN Y EDITA CATEGORÍA
+
+const editCategoryList = (identificador) => {
+    just('#edit-categories').classList.remove("is-hidden")
+    let categoriaAEditar = categories.filter((categoria) => categoria.id === identificador)
+    just('#edition-categoria-input').value = categoriaAEditar[0].nombre
+    just('#edit-category-btn').addEventListener('click', ()=> categoriEdition(categoriaAEditar[0].id))
+}
+
+            // ACTUALIZACIÓN CON EDICIÓN
+
+const categoriEdition = (id) => {
+    const userChosenName = just('#edition-categoria-input').value
+    let newCategories = {
+        id: id,
+        nombre: userChosenName
+    };
+    let newestCategory = categories.map((categoorias) => categoorias.id === id ? {...newCategories} :categoorias)
+        listaCategorias(newestCategory)
+}
+
+
+
+
+
+
