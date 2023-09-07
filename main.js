@@ -86,9 +86,3 @@ const categoriEdition = (id) => {
     let newestCategory = categories.map((categoorias) => categoorias.id === id ? {...newCategories} :categoorias)
         listaCategorias(newestCategory)
 }
-
-
-
-
-
-

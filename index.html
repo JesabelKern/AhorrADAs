@@ -91,7 +91,7 @@
                                 </select>
                             </li>
                             <li>
-                                <p class="has-text-weight-medium categoria-select">Categoria</p>
+                                <p class="has-text-weight-medium">Categoria</p>
                                 <select>
                                     <option value="comida">Comida</option>
                                     <option value="servicios">Servicios</option>
@@ -177,24 +177,24 @@
     <section class="container main-new-operation">
         <p class="is-size-2 has-text-weight-bold title-new-operation">Nueva Operacion</p>
         <div class="new-operation-content">
-            <form>
-                <div class="div-description-form">
-                    <label class="has-text-weight-semibold">Descripcion</label>
+            <ul>
+                <li>
+                    <p class="has-text-weight-semibold">Descripcion</p>
                     <input type="text" id="input-text-description">
-                </div>
-                <div class="div-amount-form">
-                    <label class="has-text-weight-semibold">Monto</label>
+                </li>
+                <li>
+                    <p class="has-text-weight-semibold">Monto</p>
                     <input type="number" id="input-number-amount" value="0">
-                </div>
-                <div class="div-type-form">
-                    <label class="has-text-weight-semibold">Tipo</label>
+                </li>
+                <li>
+                    <p class="has-text-weight-semibold">Tipo</p>
                     <select>
                         <option value="gasto">Gasto</option>
                         <option value="ganancia">Ganancia</option>
                     </select>
-                </div>
-                <div class="div-category-form">
-                    <label class="has-text-weight-semibold categoria-select">Categoria</label>
+                </li>
+                <li>
+                    <p class="has-text-weight-semibold">Categoria</p>
                     <select>
                         <option value=""></option>
                         <option value=""></option>
@@ -203,12 +203,12 @@
                         <option value=""></option>
                         <option value=""></option>
                     </select>
-                </div>
-                <div class="div-date-form">
-                    <label class="has-text-weight-semibold">Fecha</label>
+                </li>
+                <li>
+                    <p class="has-text-weight-semibold">Fecha</p>
                     <input type="date" id="input-date">
-                </div>
-            </form>
+                </li>
+            </ul>
             <div class="buttons-cancel-add">
                 <button class="button">Cancelar</button>
                 <button class="button">Agregar</button>
@@ -277,14 +277,13 @@
                 <div class="mt-6" id="categories">
                     <div class="mb-3">
                         <div class="div-content-category columns is-vcentered is-mobile">
-                            <div class="column name-category">
-                                <span class="tag has-text-weight-semibold">Comida</span>
-                            </div>
-                            <div class="column is-narrow has-text">
-                                <a href="#" class="mr-4 is-size-7 edit-link">Editar</a>
-                                <a href="#" class="is-size-7 delete-link">Eliminar</a>
-                                <p></p>
-                            </div>
+                            <ul class="column name-category" id="list-categorie">
+                                <!-- <li class="tag has-text-weight-semibold">Comidas</li>
+                                <div class="column is-narrow has-text">
+                                    <a href="#" class="mr-4 is-size-7 edit-link">Editar</a>
+                                    <a href="#" class="is-size-7 delete-link">Eliminar</a>
+                                </div> -->
+                            </ul>
                         </div>
                     </div>
                 </div>
