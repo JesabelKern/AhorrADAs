@@ -57,6 +57,7 @@ just('.btn-new-operation').onclick = () => {
 
 
 
+
 // TRAER CATEGORÍAS
 
 let categories =[
@@ -95,7 +96,7 @@ const listaCategorias = (category) => {
         <li class="tag has-text-weight-semibold is-flex is-justify-content-space-between">
                 <p>${nombre}</p>
                 <div class="column is-narrow has-text">
-                <a href="#" onclick="editCategoryList('${id}')" id="${id}" class="mr-4 is-size-7 edit-link editor-button">Editar</a>
+                <a href="#" onclick="editCategoryList('${id}')" id="${id}" class="mr-4 is-size-7 edit-link btn-edition-category">Editar</a>
                 <a href="#" onclick="removeCategoryList('${id}')" id="${id}" class="is-size-7 delete-link">Eliminar</a>
                 </div>
         </li>`
