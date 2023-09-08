@@ -152,8 +152,6 @@ const categoriEdition = (id) => {
 
 //rellenar los  SELECT actualizados
 
-console.log(all('.category-select'))
-
 const fillSelect = (category) => {
     all(".category-select").forEach((selection) => {
         selection.innerHTML = ""
@@ -167,3 +165,103 @@ fillSelect(categories)
 just("#category-filter").addEventListener("change", () => {
     console.log($("#category-filter").value)
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//OPERACIONES
+
+let operations = [
+    {
+        id:randomId(),
+        description:"Supermercado",
+        category:"",
+        date:"",
+        amount:"",
+    },
+    {
+        id:randomId(),
+        description:"Sueldo",
+        category:"",
+        date:"",
+        amount:"",
+    },
+    {
+        id:randomId(),
+        description:"Alquiler",
+        category:"lkjlk",
+        date:"lkjlkj",
+        amount:"lklkjlkj",
+    },
+]
+
+
+const listOperations = (operation) => {
+    for (let {id, desc, cat, date, amou} of operation) {
+        just('.section-operation-created').innerHTML += `
+        <div class="column-of-each-operation columns is-justify-content-space-between">
+            <div class="column is-flex-wrap-wrap">
+                <p>${desc}</p>
+            </div>
+            <div class="column">
+                <p>${cat}</p>
+            </div>
+            <div class="column">
+                <p>${date}</p>
+            </div>
+            <div class="column">
+                <p>${amou}</p>
+            </div>
+            <div class="column has-text-right">
+                <button class="button is-text is-small">Editar</button>
+                <button class="button is-text is-small">Eliminar</button>
+            </div>
+        </div>`
+    }
+}
+
+
+listOperations(operations)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
