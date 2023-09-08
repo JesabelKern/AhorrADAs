@@ -114,20 +114,27 @@ listaCategorias(categories)
 
 
 //EDITAR CATEGORIA
-            // AGREGA CLASE HIDDEN
-        
+// AGREGA CLASE HIDDEN
+
 all('#cancel-edit-category-btn').forEach( (btn) => {
     btn.addEventListener('click', () => just('#edit-categories').classList.add ("is-hidden"))
 });
 
-            // REMUEVE HIDDEN Y EDITA CATEGORÍA
+// //BOTON CANCELAR EDITAR NUEVA CATEGORIA
+// just('.cancel-edit-category-btn').onclick = () => {
+//     just('#section-view-categories').classList.remove('is-hidden')
+//     just('.section-edit-categories').classList.add('is-hidden')
+// }
 
+//remueve el hidden de editar categorias y agrega el hidden en categorias
 const editCategoryList = (identificador) => {
     just('#edit-categories').classList.remove("is-hidden")
+    just('#section-view-categories').classList.add('is-hidden')
     let categoriaAEditar = categories.filter((categoria) => categoria.id === identificador)
     just('#edition-categoria-input').value = categoriaAEditar[0].nombre
     just('#edit-category-btn').addEventListener('click', ()=> categoriEdition(categoriaAEditar[0].id))
 }
+
 
 
 // ACTUALIZACIÓN CON EDICIÓN
@@ -142,6 +149,10 @@ const categoriEdition = (id) => {
         listaCategorias(newestCategory)
     }
     
+
+
+
+
     //FUNCIONALIDAD BOTON ELIMINAR
 
 
@@ -251,6 +262,18 @@ all('.edit-operation-btn').forEach((btn) => {
     btn.addEventListener('click', ()=> just('.section-edit-new-operation').classList.remove('is-hidden') & just('.main-balance').classList.add('is-hidden')
     )
 })
+
+//BOTON CANCELAR NUEVA OPERACION
+just('.cancel-btn-new-operation').onclick = () =>{
+    just('.main-balance').classList.remove('is-hidden')
+    just('.section-new-operation').classList.add('is-hidden')
+}
+
+//BOTON CANCELAR EDITAR UNA OPERACION
+just('.cancel-btn-edit-operation').onclick = () =>{
+    just('.main-balance').classList.remove('is-hidden')
+    just('.section-edit-new-operation').classList.add('is-hidden')
+}
 
 
 
