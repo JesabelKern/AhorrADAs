@@ -5,13 +5,55 @@ const all = (selector) => document.querySelectorAll(selector)
 const randomId = () => self.crypto.randomUUID();
 
 
-//click en boton categorias
 
-// showCategories.onclick = () => {
-//     just('.main-balance').classList.add('is-hidden')
-//     just('.section-new-operation').classList.add('is-hidden')
-//     just('.section-edit-new-operation')
-// }
+//click en boton balance
+just('.btn-balance-navbar').onclick = () => {
+    just('.main-balance').classList.remove('is-hidden')
+    just('.section-new-operation').classList.add('is-hidden')
+    just('.section-edit-new-operation').classList.add('is-hidden')
+    just('#section-view-categories').classList.add('is-hidden')
+    just('.section-edit-categories').classList.add('is-hidden')
+    just('#section-view-reports').classList.add('is-hidden')
+}   
+
+//click en boton categoias
+just('.btn-categories-navbar').onclick = () => {
+    just('#section-view-categories').classList.remove('is-hidden')
+    just('.main-balance').classList.add('is-hidden')
+    just('.section-new-operation').classList.add('is-hidden')
+    just('.section-edit-new-operation').classList.add('is-hidden')
+    just('.section-edit-categories').classList.add('is-hidden')
+    just('#section-view-reports').classList.add('is-hidden')
+}
+
+//click en boton reportes
+just('.btn-reports-navbar').onclick = () => {
+    just('#section-view-reports').classList.remove('is-hidden')
+    just('#section-view-categories').classList.add('is-hidden')
+    just('.main-balance').classList.add('is-hidden')
+    just('.section-new-operation').classList.add('is-hidden')
+    just('.section-edit-new-operation').classList.add('is-hidden')
+    just('.section-edit-categories').classList.add('is-hidden')
+}
+
+//click en boton nueva operacion
+just('.btn-new-operation').onclick = () => {
+    just('.section-new-operation').classList.remove('is-hidden')
+    just('#section-view-reports').classList.add('is-hidden')
+    just('#section-view-categories').classList.add('is-hidden')
+    just('.main-balance').classList.add('is-hidden')
+    just('.section-edit-new-operation').classList.add('is-hidden')
+    just('.section-edit-categories').classList.add('is-hidden')
+}
+
+
+
+
+
+
+
+
+
 
 
 
