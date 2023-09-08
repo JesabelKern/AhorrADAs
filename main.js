@@ -4,6 +4,17 @@ const just = (selector) => document.querySelector(selector)
 const all = (selector) => document.querySelectorAll(selector)
 const randomId = () => self.crypto.randomUUID();
 
+
+//click en boton categorias
+
+// showCategories.onclick = () => {
+//     just('.main-balance').classList.add('is-hidden')
+//     just('.section-new-operation').classList.add('is-hidden')
+//     just('.section-edit-new-operation')
+// }
+
+
+
 // TRAER CATEGORÍAS
 
 let categories =[
