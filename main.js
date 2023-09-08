@@ -6,7 +6,7 @@ const randomId = () => self.crypto.randomUUID();
 
 // TRAER CATEGORÍAS
 
-let categories = [
+let categories =[
     {
         id: randomId(),
         nombre: "Comida"
@@ -75,7 +75,8 @@ const editCategoryList = (identificador) => {
     just('#edit-category-btn').addEventListener('click', ()=> categoriEdition(categoriaAEditar[0].id))
 }
 
-            // ACTUALIZACIÓN CON EDICIÓN
+
+// ACTUALIZACIÓN CON EDICIÓN
 
 const categoriEdition = (id) => {
     const userChosenName = just('#edition-categoria-input').value
@@ -85,4 +86,30 @@ const categoriEdition = (id) => {
     };
     let newestCategory = categories.map((arrCategorias) => arrCategorias.id === id ? {...newCategories} :arrCategorias)
         listaCategorias(newestCategory)
+    }
+    
+    //FUNCIONALIDAD BOTON ELIMINAR
+
+
+
+
+
+
+
+//rellenar los  SELECT actualizados
+
+console.log(all('.category-select'))
+
+const fillSelect = (category) => {
+    all(".category-select").forEach((selection) => {
+        selection.innerHTML = ""
+        for (let {nombre, id} of category){
+            selection.innerHTML += `<option value="${id}">${nombre}</option>`
+        }
+    })
 }
+
+fillSelect(categories)
+just("#category-filter").addEventListener("change", () => {
+    console.log($("#category-filter").value)
+})
