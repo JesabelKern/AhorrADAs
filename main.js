@@ -150,6 +150,11 @@ const categoriEdition = (id) => {
 
 
 
+
+
+
+
+    //HHHHHHHHHHHHHHHEEEEEEEEEEEEEELLLLLLLLLLLLLLPPPPPPPPPPPPPP
 //rellenar los  SELECT actualizados
 
 const fillSelect = (category) => {
@@ -208,7 +213,7 @@ let operations = [
     },
 ]
 
-
+//crea una nueva lista para cada nueva operacion EN OPERACIONES
 const listOperations = (operation) => {
     for (let {id, desc, cat, date, amou} of operation) {
         just('.section-operation-created').innerHTML += `
@@ -226,18 +231,82 @@ const listOperations = (operation) => {
                 <p>${amou}</p>
             </div>
             <div class="column has-text-right">
-                <button class="button is-text is-small">Editar</button>
-                <button class="button is-text is-small">Eliminar</button>
+                <button class="button is-text is-small edit-operation-btn" id="${id}">Editar</button>
+                <button class="button is-text is-small delete-operation-btn" id="${id}">Eliminar</button>
             </div>
         </div>`
     }
+
 }
-
-
 listOperations(operations)
 
 
 
+
+
+
+
+//EDITAR OPERACION BTN
+all('.edit-operation-btn').forEach((btn) => {
+    btn.addEventListener('click', ()=> just('.section-edit-new-operation').classList.remove('is-hidden') & just('.main-balance').classList.add('is-hidden')
+    )
+})
+
+
+
+
+
+
+
+
+
+
+
+
+//HHHHHHHHHHHHHHHHHHHHEEEEEEEEEELLLLLLLLLLPPPPPPPPPPPP
+//agregar nueva operacion
+
+just('#input-text-description').addEventListener('input', (event)=> seeValueInputText(event))
+const seeValueInputText = (income) =>{
+    income.target.value
+} //CAPTURE LO QUE SE ESCRIBE 
+
+
+just('#input-number-amount').addEventListener('input', (event)=> seeValueInputNumber(event))
+const seeValueInputNumber = (income) => {
+    income.target.value
+}//capture lo el monto
+
+just('.selection-for-type').addEventListener('input', (event)=> seeValueSelect(event))
+const seeValueSelect = (income) => {
+    income.target.value
+}//capture el tipo de gasto o ganancia
+
+
+just('.btn-add-new-operation').addEventListener('click', ()=> www())
+const www = () => {
+    just('.section-operation-created').innerHTML += `
+        <div class="column-of-each-operation columns is-justify-content-space-between">
+            <div class="column is-flex-wrap-wrap">
+                <p>${seeValueInputText}</p> 
+            </div>
+            <div class="column">
+                <p>00000</p>
+            </div>
+            <div class="column">
+                <p>000000</p>
+            </div>
+            <div class="column">
+                <p>${seeValueInputNumber}</p>
+            </div>
+            <div class="column has-text-right">
+                <button class="button is-text is-small" id="${operations.id}">Editar</button>
+                <button class="button is-text is-small" id="${operations.id}">Eliminar</button>
+            </div>
+        </div>`
+}
+//console.log(operations.push(www)) //me devuelve un 4 y no se porque
+//esta bien como le pase el id? porque sin el operations. me decia que no esta definido
 
 
 
