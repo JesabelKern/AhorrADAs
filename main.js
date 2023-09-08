@@ -4,9 +4,63 @@ const just = (selector) => document.querySelector(selector)
 const all = (selector) => document.querySelectorAll(selector)
 const randomId = () => self.crypto.randomUUID();
 
+
+
+//click en boton balance
+just('.btn-balance-navbar').onclick = () => {
+    just('.main-balance').classList.remove('is-hidden')
+    just('.section-new-operation').classList.add('is-hidden')
+    just('.section-edit-new-operation').classList.add('is-hidden')
+    just('#section-view-categories').classList.add('is-hidden')
+    just('.section-edit-categories').classList.add('is-hidden')
+    just('#section-view-reports').classList.add('is-hidden')
+}   
+
+//click en boton categoias
+just('.btn-categories-navbar').onclick = () => {
+    just('#section-view-categories').classList.remove('is-hidden')
+    just('.main-balance').classList.add('is-hidden')
+    just('.section-new-operation').classList.add('is-hidden')
+    just('.section-edit-new-operation').classList.add('is-hidden')
+    just('.section-edit-categories').classList.add('is-hidden')
+    just('#section-view-reports').classList.add('is-hidden')
+}
+
+//click en boton reportes
+just('.btn-reports-navbar').onclick = () => {
+    just('#section-view-reports').classList.remove('is-hidden')
+    just('#section-view-categories').classList.add('is-hidden')
+    just('.main-balance').classList.add('is-hidden')
+    just('.section-new-operation').classList.add('is-hidden')
+    just('.section-edit-new-operation').classList.add('is-hidden')
+    just('.section-edit-categories').classList.add('is-hidden')
+}
+
+//click en boton nueva operacion
+just('.btn-new-operation').onclick = () => {
+    just('.section-new-operation').classList.remove('is-hidden')
+    just('#section-view-reports').classList.add('is-hidden')
+    just('#section-view-categories').classList.add('is-hidden')
+    just('.main-balance').classList.add('is-hidden')
+    just('.section-edit-new-operation').classList.add('is-hidden')
+    just('.section-edit-categories').classList.add('is-hidden')
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 // TRAER CATEGORÍAS
 
-let categories = [
+let categories =[
     {
         id: randomId(),
         nombre: "Comida"
@@ -42,7 +96,7 @@ const listaCategorias = (category) => {
         <li class="tag has-text-weight-semibold is-flex is-justify-content-space-between">
                 <p>${nombre}</p>
                 <div class="column is-narrow has-text">
-                <a href="#" onclick="editCategoryList('${id}')" id="${id}" class="mr-4 is-size-7 edit-link editor-button">Editar</a>
+                <a href="#" onclick="editCategoryList('${id}')" id="${id}" class="mr-4 is-size-7 edit-link btn-edition-category">Editar</a>
                 <a href="#" onclick="removeCategoryList('${id}')" id="${id}" class="is-size-7 delete-link">Eliminar</a>
                 </div>
         </li>`
@@ -75,7 +129,8 @@ const editCategoryList = (identificador) => {
     just('#edit-category-btn').addEventListener('click', ()=> categoriEdition(categoriaAEditar[0].id))
 }
 
-            // ACTUALIZACIÓN CON EDICIÓN
+
+// ACTUALIZACIÓN CON EDICIÓN
 
 const categoriEdition = (id) => {
     const userChosenName = just('#edition-categoria-input').value
@@ -85,4 +140,30 @@ const categoriEdition = (id) => {
     };
     let newestCategory = categories.map((arrCategorias) => arrCategorias.id === id ? {...newCategories} :arrCategorias)
         listaCategorias(newestCategory)
+    }
+    
+    //FUNCIONALIDAD BOTON ELIMINAR
+
+
+
+
+
+
+
+//rellenar los  SELECT actualizados
+
+console.log(all('.category-select'))
+
+const fillSelect = (category) => {
+    all(".category-select").forEach((selection) => {
+        selection.innerHTML = ""
+        for (let {nombre, id} of category){
+            selection.innerHTML += `<option value="${id}">${nombre}</option>`
+        }
+    })
 }
+
+fillSelect(categories)
+just("#category-filter").addEventListener("change", () => {
+    console.log($("#category-filter").value)
+})

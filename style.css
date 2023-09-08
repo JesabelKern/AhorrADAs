@@ -98,18 +98,18 @@ select, #input-date{
 
 
 /* STYLE FOR NEW OPERATION */
-.title-new-operation{
+.title-new-operation, .title-edit-new-operation{
     color: #3C1855;
     margin-left: 3vh;
 }
-.main-new-operation{
+.section-new-operation, .section-edit-new-operation{
     background-color: #ffe3d8;
     height: 93vh;
     width: 60vw;
     border-radius: 5px;
     margin-top: 10vh;  /*CAMBIAR UNA VEZ OBTENIDO EL NAVBAR*/
 }
-.new-operation-content{
+.new-operation-content, .edit-operation-content{
     margin: 5vh;
 }
 ul li{

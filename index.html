@@ -38,15 +38,15 @@
             </div>
             <div class="navbar-menu">
                 <div class="navbar-end">
-                    <button class="navbar-item" id="see-balance">
+                    <button class="navbar-item btn-balance-navbar" id="see-balance">
                         <i class="fas fa-chart-line mr-2" aria-hidden="true"></i>
                         Balance
                     </button>
-                    <button class="navbar-item" id="see-categories">
+                    <button class="navbar-item btn-categories-navbar" id="see-categories">
                         <i class="fas fa-tag mr-2" aria-hidden="true"></i>
                         Categorías
                     </button>
-                    <button class="navbar-item" id="see-reports">
+                    <button class="navbar-item btn-reports-navbar" id="see-reports">
                         <i class="fas fa-chart-pie mr-2" aria-hidden="true"></i>
                         Reportes
                     </button>
@@ -91,8 +91,8 @@
                                 </select>
                             </li>
                             <li>
-                                <label class="has-text-weight-medium" for="category-select">Categoria</label>
-                                <select class="category-select" id="category-select">
+                                <label class="has-text-weight-medium" for="category-filter">Categoria</label>
+                                <select class="category-select category-filter" id="category-filter">
                                     <option value="comida">Comida</option>
                                     <option value="servicios">Servicios</option>
                                     <option value="salidas">Salidas</option>
@@ -126,7 +126,7 @@
                 <div class="div-operations container is-flex-direction-column">
                     <div class="is-flex is-justify-content-space-between">
                         <p class="is-size-3 has-text-weight-bold">Operaciones</p>
-                        <button class="button">+ Nueva Operacion</button>
+                        <button class="button btn-new-operation">+ Nueva Operacion</button>
                     </div>
                     <figure class="operation-img my-6">
                         <img src="img/Finance app-amico.png" width="450px" height="450px">
@@ -174,7 +174,7 @@
         </section>
     </main>
     <!-- VISTA NUEVA OPERACION -->
-    <section class="container main-new-operation">
+    <section class="container section-new-operation is-hidden">
         <p class="is-size-2 has-text-weight-bold title-new-operation">Nueva Operacion</p>
         <div class="new-operation-content">
             <ul>
@@ -194,8 +194,8 @@
                     </select>
                 </li>
                 <li>
-                    <p class="has-text-weight-semibold">Categoria</p>
-                    <select>
+                    <label class="has-text-weight-semibold" for="category-select">Categoria</label>
+                    <select class="category-select" id="category-select">
                         <option value=""></option>
                         <option value=""></option>
                         <option value=""></option>
@@ -216,8 +216,8 @@
         </div>
     </section>
     <!-- VISTA EDITAR OPERACION -->
-    <section class="container main-new-operation">
-        <p class="is-size-2 has-text-weight-bold title-edit-operation">Editar Operacion</p>
+    <section class="container section-edit-new-operation is-hidden">
+        <p class="is-size-2 has-text-weight-bold title-edit-new-operation">Editar Operacion</p>
         <div class="edit-operation-content">
             <form>
                 <div class="div-description-form edit">
@@ -258,7 +258,7 @@
         </div>
     </section>
     <!-- SECCIÓN CATEGORÍAS -->
-    <section class="section mt-5 view container" id="view-categories">
+    <section class="section mt-5 view container is-hidden" id="section-view-categories">
         <div
             class="column is-multiline is-8-widescreen is-10-desktop is-offset-2-widescreen is-offset-1-desktop div-categories">
             <div class="box">
@@ -314,7 +314,7 @@
         </div>
     </section>
     <!-- SECCIÓN REPORTES -->
-    <section class="section mt-5 vista" id="view-reports">
+    <section class="section mt-5 vista is-hidden" id="section-view-reports">
         <div class="container">
             <div class="column is-8-widescreen is-10-desktop is-offset-2-widescreen is-offset-1-desktop">
                 <div class="box">
