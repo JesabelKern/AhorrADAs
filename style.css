@@ -98,6 +98,9 @@ select, #input-date{
 
 
 /* STYLE FOR NEW OPERATION */
+.form-for-new-operation div{
+    margin-bottom: 2.5vh;
+}
 .title-new-operation, .title-edit-new-operation{
     color: #3C1855;
     margin-left: 3vh;
@@ -107,7 +110,8 @@ select, #input-date{
     height: 93vh;
     width: 60vw;
     border-radius: 5px;
-    margin-top: 10vh;  /*CAMBIAR UNA VEZ OBTENIDO EL NAVBAR*/
+    margin-top: 10vh;  
+    /* CAMBIAR UNA VEZ OBTENIDO EL NAVBAR */
 }
 .new-operation-content, .edit-operation-content{
     margin: 5vh;
