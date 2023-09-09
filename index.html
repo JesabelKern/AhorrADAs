@@ -56,7 +56,7 @@
     </header>
     <!-- FIN BARRA DE NAVEGACIÓN ... COMIENZO DEL MAIN -->
     <!-- VISTA BALANCE  -->
-    <main class="container main-balance">
+    <main class="container main-balance screen">
         <section class="main-columns columns">
             <section class="section-balance column is-3">
                 <div class="div-balance">
@@ -132,16 +132,16 @@
                         <img src="img/Finance app-amico.png" width="450px" height="450px">
                     </figure>
                     <section class="column-of-new-operation columns is-justify-content-space-between">
-                        <div class="column has-text-left">
+                        <div class="column">
                             Descripcion
                         </div>
-                        <div class="column has-text-left">
+                        <div class="column">
                             Categoria
                         </div>
-                        <div class="column has-text-right">
+                        <div class="column">
                             Fecha
                         </div>
-                        <div class="column has-text-right">
+                        <div class="column">
                             Monto
                         </div>
                         <div class="column has-text-right">
@@ -151,72 +151,69 @@
 
 
                     <!--JAVASCRIPT HTML COPIAR-->
-                    <!-- <section class="column-of-each-operation columns is-justify-content-space-between">
-                        <div class="column has-text-left is-flex-wrap-wrap">
-                            <p>supermercado</p>
-                        </div>
-                        <div class="column has-text-left">
-                            <p>Categoria</p>
-                        </div>
-                        <div class="column has-text-right">
-                            <p>fladksjfa</p>
-                        </div>
-                        <div class="column has-text-right">
-                            <p>fladksjfa</p>
-                        </div>
-                        <div class="column has-text-right">
-                            <button class="button is-text is-small">Editar</button>
-                            <button class="button is-text is-small">Eliminar</button>                          
-                        </div> 
-                    </section> -->
+                    <section class="section-operation-created">
+                        <!-- <div class="column-of-each-operation columns is-justify-content-space-between">
+                            <div class="column is-flex-wrap-wrap">
+                                <p>supermercado</p>
+                            </div>
+                            <div class="column">
+                                <p>Categoria</p>
+                            </div>
+                            <div class="column">
+                                <p>fladksjfa</p>
+                            </div>
+                            <div class="column">
+                                <p>fladksjfa</p>
+                            </div>
+                            <div class="column has-text-right">
+                                <button class="button is-text is-small">Editar</button>
+                                <button class="button is-text is-small">Eliminar</button>
+                            </div>
+                        </div> -->
+                    </section>
                 </div>
             </section>
         </section>
     </main>
     <!-- VISTA NUEVA OPERACION -->
-    <section class="container section-new-operation is-hidden">
+    <section class="container section-new-operation screen is-hidden">
         <p class="is-size-2 has-text-weight-bold title-new-operation">Nueva Operacion</p>
         <div class="new-operation-content">
-            <ul>
-                <li>
-                    <p class="has-text-weight-semibold">Descripcion</p>
+            <form class="form-for-new-operation">
+                <div>
+                    <label class="has-text-weight-semibold" for="input-text-description">Descripcion</label>
                     <input type="text" id="input-text-description">
-                </li>
-                <li>
-                    <p class="has-text-weight-semibold">Monto</p>
+                </div>
+                <div>
+                    <label class="has-text-weight-semibold" for="input-number-amount">Monto</label>
                     <input type="number" id="input-number-amount" value="0">
-                </li>
-                <li>
-                    <p class="has-text-weight-semibold">Tipo</p>
-                    <select>
+                </div>
+                <div>
+                    <label class="has-text-weight-semibold" for="selects-for-type">Tipo</label>
+                    <select class="selection-for-type" id="selects-for-type">
                         <option value="gasto">Gasto</option>
                         <option value="ganancia">Ganancia</option>
                     </select>
-                </li>
-                <li>
+                </div>
+                <div>
                     <label class="has-text-weight-semibold" for="category-select">Categoria</label>
                     <select class="category-select" id="category-select">
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
+
                     </select>
-                </li>
-                <li>
-                    <p class="has-text-weight-semibold">Fecha</p>
+                </div>
+                <div>
+                    <label class="has-text-weight-semibold" for="input-date">Fecha</label>
                     <input type="date" id="input-date">
-                </li>
-            </ul>
+                </div>
+            </form>
             <div class="buttons-cancel-add">
-                <button class="button">Cancelar</button>
-                <button class="button">Agregar</button>
+                <button class="button cancel-btn-new-operation">Cancelar</button>
+                <button class="button btn-add-new-operation">Agregar</button>
             </div>
         </div>
     </section>
     <!-- VISTA EDITAR OPERACION -->
-    <section class="container section-edit-new-operation is-hidden">
+    <section class="container section-edit-new-operation screen is-hidden">
         <p class="is-size-2 has-text-weight-bold title-edit-new-operation">Editar Operacion</p>
         <div class="edit-operation-content">
             <form>
@@ -236,7 +233,8 @@
                     </select>
                 </div>
                 <div class="div-category-form edit">
-                    <label class="has-text-weight-semibold categoria-select" for="edit-category-select">Categoria</label>
+                    <label class="has-text-weight-semibold categoria-select"
+                        for="edit-category-select">Categoria</label>
                     <select class="category-select" id="edit-category-select">
                         <option value=""></option>
                         <option value=""></option>
@@ -252,13 +250,13 @@
                 </div>
             </form>
             <div class="buttons-cancel-add">
-                <button class="button">Cancelar</button>
+                <button class="button cancel-btn-edit-operation">Cancelar</button>
                 <button class="button">Agregar</button>
             </div>
         </div>
     </section>
     <!-- SECCIÓN CATEGORÍAS -->
-    <section class="section mt-5 view container is-hidden" id="section-view-categories">
+    <section class="section mt-5 view container section-view-categories screen is-hidden">
         <div
             class="column is-multiline is-8-widescreen is-10-desktop is-offset-2-widescreen is-offset-1-desktop div-categories">
             <div class="box">
@@ -291,7 +289,7 @@
         </div>
     </section>
     <!-- EDITAR CATEGORÍA -->
-    <section class="section-edit-categories mt-5 view container is-hidden" id="edit-categories">
+    <section class="section-edit-categories mt-5 view container screen is-hidden" id="edit-categories">
         <div
             class="column is-multiline is-8-widescreen is-10-desktop is-offset-2-widescreen is-offset-1-desktop div-edit-categories">
             <div class="box edit-categories-div">
@@ -302,7 +300,7 @@
                         <input class="input" type="text" name="" id="edition-categoria-input" />
                     </div>
                     <div class="control">
-                        <button class="button" id="edit-category-btn">
+                        <button class="button btn-edit-category" id="edit-category-btn">
                             Editar
                         </button>
                         <button class="button" id="cancel-edit-category-btn">
@@ -314,7 +312,7 @@
         </div>
     </section>
     <!-- SECCIÓN REPORTES -->
-    <section class="section mt-5 vista is-hidden" id="section-view-reports">
+    <section class="section mt-5 screen section-view-reports is-hidden">
         <div class="container">
             <div class="column is-8-widescreen is-10-desktop is-offset-2-widescreen is-offset-1-desktop">
                 <div class="box">
