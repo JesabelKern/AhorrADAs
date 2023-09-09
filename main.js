@@ -4,16 +4,9 @@ const all = (selector) => document.querySelectorAll(selector)
 const randomId = () => self.crypto.randomUUID();
 
 
-//TRAER Y LLEVAR DATOS AL LS  ---NO SE SI FUNCIONA---
-const bringData = () => {
-    return JSON.parse(localStorage.getItem("data"));
-};
-const uploadData = (info) => {
-    localStorage.setItem("datos", JSON.stringify({ ...traerDatos(), ...info }));
-};
-const traerCategorias = () => {
-    return traerDatos()?.categories;
-  };
+
+
+
 
 
 
@@ -35,33 +28,27 @@ just('.btn-add-new-operation').addEventListener('click', ()=> mostrarVista('main
 
 //FUNCIONALIDAD DE BTN EDITAR OPERACION  ---NO FUNCIONA---
 // all('.edit-operation-btn').forEach((btn) => {
-//     btn.addEventListener('click', ()=> just('.section-edit-new-operation').classList.remove('is-hidden') & just('.main-balance').classList.add('is-hidden')) & just('.section-new-operation').classList.add('is-hidden')
+    //     btn.addEventListener('click', ()=> just('.section-edit-new-operation').classList.remov('is-hidden') & just('.main-balance').classList.add('is-hidden')) & just('.section-new-operation')classList.add('is-hidden')
 // })
 
 
-
-//BOTON CANCELAR DE NUEVA OPERACION  ---FUNCIONA ✓---
-just('.cancel-btn-new-operation').onclick = () =>{
-    just('.main-balance').classList.remove('is-hidden')
-    just('.section-new-operation').classList.add('is-hidden')
-}
-
-//BOTON CANCELAR DE EDITAR UNA OPERACION  ---NO SE SI FUNCIONA---
-just('.cancel-btn-edit-operation').onclick = () =>{
-    just('.main-balance').classList.remove('is-hidden')
-    just('.section-edit-new-operation').classList.add('is-hidden')
+//TRAER Y LLEVAR DATOS AL LS  ---NO SE SI FUNCIONA---
+const traerDatosDelLS = () => { //esto va a ir al LS y va a traer los datos que encuentre dentro
+    return JSON.parse(localStorage.getItem('walletInformation')) //aca estamos trayendo todo lo que este bajo esa key y con el JSON parse lo convertimos en un objeto ya que de otra manera devuelve solo un gran enorme string
 }
 
 
-// BOTON CANCELAR EDITAR CATEGORIA ESCONDE EDITAR Y MUESTRA CATEGORIAS  ---FUNCIONA ✓---
-all('#cancel-edit-category-btn').forEach( (btn) => {
-    btn.addEventListener('click', () => just('.section-view-categories').classList.remove("is-hidden"))
-});
+// const subirDatosAlLS = () => { //esto va a llevar los datos actualizados al LS
+//     localStorage.setItem('walletInformation')
+// }
 
+const traerCategorias = () => {
+    return traerDatosDelLS()?.categoriasDeEjemplo//categories // devuelve lo que encuentre en el LS bajo el nombre .categories, si no hay nada entonces que me muestre lo que hardcodeamos abajo en el array categories (se leeria como hay traerDatosSelLS ? entonces mostrame la que dice categories, sino solamente ignorame)
+}
 
 
 // TRAER CATEGORÍAS
-let categories =[
+let categories = traerCategorias () || [ //esto se lee como "che categories, traeme primero lo que haya en el LS y si no hay nada entonces mostrame esto hardcodeado" (si traerCategorias es falsy o null entonces pasa a la siguiente instruccion)
     {
         id: randomId(),
         nombre: "Comida"
@@ -87,6 +74,10 @@ let categories =[
         nombre: "Trabajo"
     },
 ]
+
+
+console.log(categories) //aca vamos a estar viendo si en definitiva habia algo en en LS o si se muestra lo hardcodeado
+
 
 // RECORRER Y AGREGAR CATEGORÍAS  ---FUNCIONA ✓---
 const listaCategorias = (category) => {
@@ -135,7 +126,6 @@ all('#cancel-edit-category-btn').forEach( (btn) => {
 });
 
 //FUNCIONALIDAD DE BTN EDITAR OPERACION  ---NO FUNCIONA---
-
 const editOperationList = (indentifier) => {
     just('.section-edit-new-operation').classList.remove('is-hidden')
     just('.main-balance').classList.add('is-hidden')
@@ -153,17 +143,17 @@ const editOperationList = (indentifier) => {
 
 
 //HACER QUE TODOS LOS SELECT ESTEN ACTUALIZADOS  ---no funciona yet-necesito el local storage---
-const fillSelect = (categories) => {
-    all(".category-select").forEach((select) => {
+const fillSelect = (arrayCategoria) => {
+    all(".category-select").forEach((select) => { //traemos a todos los select (el de filtro el de operacion y el de editar operacion) y le decimos, que por cada select que haya (son 3) le agregue una categoria (como?)     ------>
         select.innerHTML = ""
-        for (let {nombre, id} of categories){
-            select.innerHTML += `<option value="${id}">${nombre}</option>`
+        for (let categoria of arrayCategoria){//<--- por cda categoria de categories (que es un array d objetos) +++se podria destructurar directamente escribiendo let {nombre, id} y luego no habria que poner abajo categoria.id sino simplemente id o nombre
+            select.innerHTML += `<option value="${categoria.id}">${categoria.nombre}</option>` //cree en el select con un innerHtml que sea un option value y q el valor de id y nombre lo traiga de lo que haya en ese objeto dentro del array select (linea 143)
         }
     })
 }
 fillSelect(categories)
 just("#category-filter").addEventListener("change", () => {
-    console.log($("#category-filter").value)
+    console.log(just("#category-filter").value)
 })
 
 
