@@ -21,22 +21,20 @@ just('.btn-balance-navbar').addEventListener('click', ()=> mostrarVista('main-ba
 just('.btn-categories-navbar').addEventListener('click', ()=> mostrarVista('section-view-categories'))//se muestra vista categorias
 just('.btn-reports-navbar').addEventListener('click', ()=> mostrarVista('section-view-reports'))// se muestra vista reportes
 just('.btn-new-operation').addEventListener('click', ()=> mostrarVista('section-new-operation'))//se muestra vista nueva operacion
-just('.btn-edit-category').addEventListener('click', ()=> mostrarVista('section-view-categories'))//apreta btn editar categoria y lo devuelve a view categorias
 just('.btn-add-new-operation').addEventListener('click', ()=> mostrarVista('main-balance'))//apreta btn agregar nueva operacion y lo devuelve a view balance 
+just('.cancel-btn-new-operation').addEventListener('click', ()=> mostrarVista('main-balance'))//apreta btn cancelar nueva operation y lo devuelve al view balance
+just('.btn-edit-category').addEventListener('click', ()=> mostrarVista('section-view-categories'))//apreta btn editar categoria y lo devuelve a view categorias
+just('.cancel-edit-category-btn').addEventListener('click', ()=> mostrarVista('section-view-categories'))//al apretar btn cancelar editar categoria te devuelve al view categorias
+just('.cancel-btn-edit-operation').addEventListener('click', ()=> mostrarVista('main-balance'))//apreta btn cancelar editar operacion y lo devuelve al view balance
+just('.btn-add-edition-operation').addEventListener('click', ()=> mostrarVista('main-balance'))
 
 
-
-//FUNCIONALIDAD DE BTN EDITAR OPERACION  ---NO FUNCIONA---
-// all('.edit-operation-btn').forEach((btn) => {
-    //     btn.addEventListener('click', ()=> just('.section-edit-new-operation').classList.remov('is-hidden') & just('.main-balance').classList.add('is-hidden')) & just('.section-new-operation')classList.add('is-hidden')
-// })
 
 
 //TRAER Y LLEVAR DATOS AL LS  ---NO SE SI FUNCIONA---
 const traerDatosDelLS = () => { //esto va a ir al LS y va a traer los datos que encuentre dentro
     return JSON.parse(localStorage.getItem('walletInformation')) //aca estamos trayendo todo lo que este bajo esa key y con el JSON parse lo convertimos en un objeto ya que de otra manera devuelve solo un gran enorme string
 }
-
 
 // const subirDatosAlLS = () => { //esto va a llevar los datos actualizados al LS
 //     localStorage.setItem('walletInformation')
@@ -47,7 +45,10 @@ const traerCategorias = () => {
 }
 
 
-// TRAER CATEGORÍAS
+
+
+
+//CATEGORÍAS CARGADAS (YA SEA HARDCODEADO O LO QUE HAYA EN EL LS)
 let categories = traerCategorias () || [ //esto se lee como "che categories, traeme primero lo que haya en el LS y si no hay nada entonces mostrame esto hardcodeado" (si traerCategorias es falsy o null entonces pasa a la siguiente instruccion)
     {
         id: randomId(),
@@ -74,9 +75,9 @@ let categories = traerCategorias () || [ //esto se lee como "che categories, tra
         nombre: "Trabajo"
     },
 ]
-
-
 console.log(categories) //aca vamos a estar viendo si en definitiva habia algo en en LS o si se muestra lo hardcodeado
+
+
 
 
 // RECORRER Y AGREGAR CATEGORÍAS  ---FUNCIONA ✓---
@@ -98,6 +99,7 @@ listaCategorias(categories)
 
 
 
+
 //MUESTRA EDITAR CATEGORIA, OCULTA VIEW CATEGORIA Y TOMA NUEVO VALOR DEL INPUT Y LO EMPUJA A UNA FUNCION  ---FUNCIONA ✓---
 const showEditCategory = (identifier) => { //recibe como parametro un ID
     just('#edit-categories').classList.remove("is-hidden") //le sacamos el hidden a la view de editar categoria
@@ -106,6 +108,8 @@ const showEditCategory = (identifier) => { //recibe como parametro un ID
     just('#edition-categoria-input').value = categorieToEdit[0].nombre //llamamos al input donde se va a estar escribiendo la modificacion y accedemos a su value y lo ponemos como el reemplazo del item en la posicion 0 ya que nos estaba devolviendo un array
     just('#edit-category-btn').addEventListener('click', ()=> categorieEdition(categorieToEdit[0].id))  //este evento va a ejecutar la funcion editar categoria
 }
+
+
 
 
 // FUNCION QUE ACTUALIZA AHORA EL NOMBRE QUE APARECE EN VIEW CATEGORY POR EL CAMBIO HECHO ANTERIORMENTE  ---FUNCIONA ✓---
@@ -120,29 +124,8 @@ const categorieEdition = (identifier) => { //creamos una funcion que tome como p
 }
 
 
-// BOTON CANCELAR EDITAR CATEGORIA ESCONDE EDITAR Y MUESTRA CATEGORIAS  ---FUNCIONA ✓---
-all('#cancel-edit-category-btn').forEach( (btn) => {
-    btn.addEventListener('click', () => just('.section-view-categories').classList.remove("is-hidden"))
-});
 
-//FUNCIONALIDAD DE BTN EDITAR OPERACION  ---NO FUNCIONA---
-const editOperationList = (indentifier) => {
-    just('.section-edit-new-operation').classList.remove('is-hidden')
-    just('.main-balance').classList.add('is-hidden')
-    let operationToEdit = operations.filter((operation) => operations.id === indentifier)
-    just('#input-text-description').value = operationToEdit[0].description
-    just('.edit-category-btn').addEventListener('click', ()=> operationsEdition(operationToEdit[0].id))
-}
-// all('.edit-operation-btn').forEach((btn) => {
-//     btn.addEventListener('click', ()=> just('.section-edit-new-operation').classList.remove('is-hidden') & just('.main-balance').classList.add('is-hidden')) & just('.section-new-operation').classList.add('is-hidden')
-// })
-
-
-
-
-
-
-//HACER QUE TODOS LOS SELECT ESTEN ACTUALIZADOS  ---no funciona yet-necesito el local storage---
+//HACER QUE TODOS LOS SELECT TENGAN LA MISMA INFO --- FUNCIONA ✓---
 const fillSelect = (arrayCategoria) => {
     all(".category-select").forEach((select) => { //traemos a todos los select (el de filtro el de operacion y el de editar operacion) y le decimos, que por cada select que haya (son 3) le agregue una categoria (como?)     ------>
         select.innerHTML = ""
@@ -171,7 +154,6 @@ just("#category-filter").addEventListener("change", () => {
 
 
 //OPERACIONES
-
 let operations = [
     {
         id:randomId(),
@@ -201,32 +183,36 @@ const listOperations = (operation) => {
     for (let {id, desc, cat, date, amou} of operation) {
         just('.section-operation-created').innerHTML += `
         <div class="column-of-each-operation columns is-justify-content-space-between">
-            <div class="column is-flex-wrap-wrap">
-                <p>${desc}</p>
-            </div>
-            <div class="column">
-                <p>${cat}</p>
-            </div>
-            <div class="column">
-                <p>${date}</p>
-            </div>
-            <div class="column">
-                <p>${amou}</p>
-            </div>
-            <div class="column has-text-right">
-                <button class="button is-text is-small edit-operation-btn" id="${id}">Editar</button>
-                <button class="button is-text is-small delete-operation-btn" id="${id}">Eliminar</button>
-            </div>
+        <div class="column is-flex-wrap-wrap">
+        <p>${desc}</p>
+        </div>
+        <div class="column">
+        <p>${cat}</p>
+        </div>
+        <div class="column">
+        <p>${date}</p>
+        </div>
+        <div class="column">
+        <p>${amou}</p>
+        </div>
+        <div class="column has-text-right">
+        <button onclick="editOperationList('${id}')" class="button is-text is-small edit-operation-btn" id="${id}">Editar</button>
+        <button onclick="removeOperationList('${id}')" class="button is-text is-small delete-operation-btn" id="${id}">Eliminar</button>
+        </div>
         </div>`
     }
 }
 listOperations(operations)
 
 
-
-
-
-
+//FUNCIONALIDAD DE BTN EDITAR OPERACION  ---FUNCIONA ✓---
+const editOperationList = (indentifier) => {
+    just('.section-edit-new-operation').classList.remove('is-hidden')
+    just('.main-balance').classList.add('is-hidden')
+    let operationToEdit = operations.filter((operation) => operation.id === indentifier)
+    just('#input-text-description').value = operationToEdit[0].description
+    just('.edit-category-btn').addEventListener('click', ()=> operationsEdition(operationToEdit[0].id))
+}
 
 
 
