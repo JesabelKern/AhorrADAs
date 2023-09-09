@@ -24,22 +24,17 @@ just('.btn-new-operation').addEventListener('click', ()=> mostrarVista('section-
 just('.btn-add-new-operation').addEventListener('click', ()=> mostrarVista('main-balance'))//apreta btn agregar nueva operacion y lo devuelve a view balance 
 just('.cancel-btn-new-operation').addEventListener('click', ()=> mostrarVista('main-balance'))//apreta btn cancelar nueva operation y lo devuelve al view balance
 just('.btn-edit-category').addEventListener('click', ()=> mostrarVista('section-view-categories'))//apreta btn editar categoria y lo devuelve a view categorias
+just('.cancel-edit-category-btn').addEventListener('click', ()=> mostrarVista('section-view-categories'))//al apretar btn cancelar editar categoria te devuelve al view categorias
 just('.cancel-btn-edit-operation').addEventListener('click', ()=> mostrarVista('main-balance'))//apreta btn cancelar editar operacion y lo devuelve al view balance
 just('.btn-add-edition-operation').addEventListener('click', ()=> mostrarVista('main-balance'))
 
 
-
-//FUNCIONALIDAD DE BTN EDITAR OPERACION  ---NO FUNCIONA---
-// all('.edit-operation-btn').forEach((btn) => {
-    //     btn.addEventListener('click', ()=> just('.section-edit-new-operation').classList.remov('is-hidden') & just('.main-balance').classList.add('is-hidden')) & just('.section-new-operation')classList.add('is-hidden')
-// })
 
 
 //TRAER Y LLEVAR DATOS AL LS  ---NO SE SI FUNCIONA---
 const traerDatosDelLS = () => { //esto va a ir al LS y va a traer los datos que encuentre dentro
     return JSON.parse(localStorage.getItem('walletInformation')) //aca estamos trayendo todo lo que este bajo esa key y con el JSON parse lo convertimos en un objeto ya que de otra manera devuelve solo un gran enorme string
 }
-
 
 // const subirDatosAlLS = () => { //esto va a llevar los datos actualizados al LS
 //     localStorage.setItem('walletInformation')
@@ -50,7 +45,10 @@ const traerCategorias = () => {
 }
 
 
-// TRAER CATEGORÍAS
+
+
+
+//CATEGORÍAS CARGADAS (YA SEA HARDCODEADO O LO QUE HAYA EN EL LS)
 let categories = traerCategorias () || [ //esto se lee como "che categories, traeme primero lo que haya en el LS y si no hay nada entonces mostrame esto hardcodeado" (si traerCategorias es falsy o null entonces pasa a la siguiente instruccion)
     {
         id: randomId(),
@@ -77,9 +75,9 @@ let categories = traerCategorias () || [ //esto se lee como "che categories, tra
         nombre: "Trabajo"
     },
 ]
-
-
 console.log(categories) //aca vamos a estar viendo si en definitiva habia algo en en LS o si se muestra lo hardcodeado
+
+
 
 
 // RECORRER Y AGREGAR CATEGORÍAS  ---FUNCIONA ✓---
@@ -101,6 +99,7 @@ listaCategorias(categories)
 
 
 
+
 //MUESTRA EDITAR CATEGORIA, OCULTA VIEW CATEGORIA Y TOMA NUEVO VALOR DEL INPUT Y LO EMPUJA A UNA FUNCION  ---FUNCIONA ✓---
 const showEditCategory = (identifier) => { //recibe como parametro un ID
     just('#edit-categories').classList.remove("is-hidden") //le sacamos el hidden a la view de editar categoria
@@ -109,6 +108,8 @@ const showEditCategory = (identifier) => { //recibe como parametro un ID
     just('#edition-categoria-input').value = categorieToEdit[0].nombre //llamamos al input donde se va a estar escribiendo la modificacion y accedemos a su value y lo ponemos como el reemplazo del item en la posicion 0 ya que nos estaba devolviendo un array
     just('#edit-category-btn').addEventListener('click', ()=> categorieEdition(categorieToEdit[0].id))  //este evento va a ejecutar la funcion editar categoria
 }
+
+
 
 
 // FUNCION QUE ACTUALIZA AHORA EL NOMBRE QUE APARECE EN VIEW CATEGORY POR EL CAMBIO HECHO ANTERIORMENTE  ---FUNCIONA ✓---
@@ -121,16 +122,6 @@ const categorieEdition = (identifier) => { //creamos una funcion que tome como p
     let newestCategory = categories.map((categoryOfArr) => categoryOfArr.id === identifier ? {...newCategories} :categoryOfArr) //creamos otra variable que guarde la modificacion y me cree un nuevo array con eso nuevo (todo esto lo hace .map) y dentro del map le decimos que a la categoria que tenga un id que sea igual al que estoy recibiendo como parametro, que modifique esa categoria por la nueva ingresada (osea que si se eligio comidas para modificar, que sea comidas quien se vea afectada y no otro valor -ya que comida original y comida a modificar tendrian el mismo id)
         listaCategorias(newestCategory)
 }
-
-
-// BOTON CANCELAR EDITAR CATEGORIA ESCONDE EDITAR Y MUESTRA CATEGORIAS  ---FUNCIONA ✓---
-all('#cancel-edit-category-btn').forEach( (btn) => {
-    btn.addEventListener('click', () => just('.section-view-categories').classList.remove("is-hidden"))
-});
-
-
-
-
 
 
 
@@ -163,7 +154,6 @@ just("#category-filter").addEventListener("change", () => {
 
 
 //OPERACIONES
-
 let operations = [
     {
         id:randomId(),
@@ -223,13 +213,6 @@ const editOperationList = (indentifier) => {
     just('#input-text-description').value = operationToEdit[0].description
     just('.edit-category-btn').addEventListener('click', ()=> operationsEdition(operationToEdit[0].id))
 }
-// all('.edit-operation-btn').forEach((btn) => {
-//     btn.addEventListener('click', ()=> just('.section-edit-new-operation').classList.remove('is-hidden') & just('.main-balance').classList.add('is-hidden')) & just('.section-new-operation').classList.add('is-hidden')
-// })
-
-
-
-
 
 
 
