@@ -41,9 +41,8 @@ const traerDatosDelLS = () => { //esto va a ir al LS y va a traer los datos que 
 // }
 
 const traerCategorias = () => {
-    return traerDatosDelLS()?.categoriasDeEjemplo//categories // devuelve lo que encuentre en el LS bajo el nombre .categories, si no hay nada entonces que me muestre lo que hardcodeamos abajo en el array categories (se leeria como hay traerDatosSelLS ? entonces mostrame la que dice categories, sino solamente ignorame)
+    return traerDatosDelLS()?.categories // devuelve lo que encuentre en el LS bajo el nombre .categories, si no hay nada entonces que me muestre lo que hardcodeamos abajo en el array categories (se leeria como hay traerDatosSelLS ? entonces mostrame la que dice categories, sino solamente ignorame)
 }
-
 
 
 
@@ -109,9 +108,6 @@ const showEditCategory = (identifier) => { //recibe como parametro un ID
     just('#edit-category-btn').addEventListener('click', ()=> categorieEdition(categorieToEdit[0].id))  //este evento va a ejecutar la funcion editar categoria
 }
 
-
-
-
 // FUNCION QUE ACTUALIZA AHORA EL NOMBRE QUE APARECE EN VIEW CATEGORY POR EL CAMBIO HECHO ANTERIORMENTE  ---FUNCIONA ✓---
 const categorieEdition = (identifier) => { //creamos una funcion que tome como parametro un id
     const userChosenName = just('#edition-categoria-input').value //dentro creamos una variable que guarde el nuevo valor del input que pide editar la categoria
@@ -150,36 +146,20 @@ just("#category-filter").addEventListener("change", () => {
 
 
 
-
+// const traerOperaciones = () => {
+//     return traerDatosDelLS()?.operations // devuelve lo que encuentre en el LS bajo el nombre .operations (se leeria como hay traerDatosSelLS ? entonces mostrame la que dice categories, sino solamente ignorame)
+// }
 
 
 //OPERACIONES
 let operations = [
-    {
-        id:randomId(),
-        description:"Supermercado",
-        category:"",
-        date:"",
-        amount:"",
-    },
-    {
-        id:randomId(),
-        description:"Sueldo",
-        category:"",
-        date:"",
-        amount:"",
-    },
-    {
-        id:randomId(),
-        description:"Alquiler",
-        category:"lkjlk",
-        date:"lkjlkj",
-        amount:"lklkjlkj",
-    },
+    
 ]
 
 //CREA UNA NUEVA LISTA PARA CADA NUEVA OPERACION EN OPERACIONES VIEW  ---FUNCIONA ✓---
 const listOperations = (operation) => {
+// just('.nuevaoperacionbtn).foreach((nuevaoperacion) => )
+    just('.section-operation-created').innerHTML =""
     for (let {id, desc, cat, date, amou} of operation) {
         just('.section-operation-created').innerHTML += `
         <div class="column-of-each-operation columns is-justify-content-space-between">
@@ -217,21 +197,24 @@ const editOperationList = (indentifier) => {
 
 
 //AGREGAR UNA NUEVA OPERACION
-const nuevaOperacion = () => {
-    let newOperation = {
+const nuevaOperacion = () => { //guardo en una variable mi objeto dinamico
+    const newOperation = { //en este objeto vamos a estar guardando la informacion que el usuario cargue
         id:randomId(),
         description:just('#input-text-description').value,
-        category:"lkjlk",
-        date:"lkjlkj",
-        amount:"lklkjlkj",
+        category:just('#selects-for-type').value,
+        date:just('#input-date').value,
+        amount:just('#input-number-amount').value,
     }
-    console.log(newOperation)
+    localStorage.setItem('WalletInformation', JSON.stringify(newOperation)); //y dentro de la funcion hacemos el setitem para el LS de lo que se obtuvo en ese objeto (no se puede hacer fuera de la funcion por el scope)
 }
-just('.btn-add-new-operation').addEventListener('click', nuevaOperacion)
+just('.btn-add-new-operation').addEventListener('click', nuevaOperacion) //y le decimos que todo esto ocurra y se suba al LS cuando se le de click al btn aniadir
+
+const traerDatosDelLSOp = JSON.parse(localStorage.getItem('WalletInformation'));//estoy trayendo lo que subi al LS como objeto y lo guardo en una variable
+console.log(traerDatosDelLSOp)
 
 
-
-
+operations.push(traerDatosDelLSOp)
+console.log(operations)
 
 
 
