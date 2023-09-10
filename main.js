@@ -1,139 +1,150 @@
-// FUNCIONES REUTILIZABLES 
-const just = (selector) => document.querySelector(selector)
-const all = (selector) => document.querySelectorAll(selector)
+// FUNCIONES REUTILIZABLES
+const just = (selector) => document.querySelector(selector);
+const all = (selector) => document.querySelectorAll(selector);
 const randomId = () => self.crypto.randomUUID();
 
-
-
-
-
-
-
-
 //MOSTRAR Y OCULTAR VISTAS DEL NAVBAR  ---FUNCIONA ✓---
-const mostrarVista = (vistaparametro) => {  
-    all('.screen').forEach( view => { 
-        view.classList.add('is-hidden')
-    })
-    just(`.${vistaparametro}`).classList.remove('is-hidden')
-}
-just('.btn-balance-navbar').addEventListener('click', ()=> mostrarVista('main-balance'))//se muestra vista balance
-just('.btn-categories-navbar').addEventListener('click', ()=> mostrarVista('section-view-categories'))//se muestra vista categorias
-just('.btn-reports-navbar').addEventListener('click', ()=> mostrarVista('section-view-reports'))// se muestra vista reportes
-just('.btn-new-operation').addEventListener('click', ()=> mostrarVista('section-new-operation'))//se muestra vista nueva operacion
-just('.btn-add-new-operation').addEventListener('click', ()=> mostrarVista('main-balance'))//apreta btn agregar nueva operacion y lo devuelve a view balance 
-just('.cancel-btn-new-operation').addEventListener('click', ()=> mostrarVista('main-balance'))//apreta btn cancelar nueva operation y lo devuelve al view balance
-just('.btn-edit-category').addEventListener('click', ()=> mostrarVista('section-view-categories'))//apreta btn editar categoria y lo devuelve a view categorias
-just('.cancel-edit-category-btn').addEventListener('click', ()=> mostrarVista('section-view-categories'))//al apretar btn cancelar editar categoria te devuelve al view categorias
-just('.cancel-btn-edit-operation').addEventListener('click', ()=> mostrarVista('main-balance'))//apreta btn cancelar editar operacion y lo devuelve al view balance
-just('.btn-add-edition-operation').addEventListener('click', ()=> mostrarVista('main-balance'))
-
-
-
+const mostrarVista = (vistaparametro) => {
+  all(".screen").forEach((view) => {
+    view.classList.add("is-hidden");
+  });
+  just(`.${vistaparametro}`).classList.remove("is-hidden");
+};
+just(".btn-balance-navbar").addEventListener("click", () =>
+  mostrarVista("main-balance")
+); //se muestra vista balance
+just(".btn-categories-navbar").addEventListener("click", () =>
+  mostrarVista("section-view-categories")
+); //se muestra vista categorias
+just(".btn-reports-navbar").addEventListener("click", () =>
+  mostrarVista("section-view-reports")
+); // se muestra vista reportes
+just(".btn-new-operation").addEventListener("click", () =>
+  mostrarVista("section-new-operation")
+); //se muestra vista nueva operacion
+just(".btn-add-new-operation").addEventListener("click", () =>
+  mostrarVista("main-balance")
+); //apreta btn agregar nueva operacion y lo devuelve a view balance
+just(".cancel-btn-new-operation").addEventListener("click", () =>
+  mostrarVista("main-balance")
+); //apreta btn cancelar nueva operation y lo devuelve al view balance
+just(".btn-edit-category").addEventListener("click", () =>
+  mostrarVista("section-view-categories")
+); //apreta btn editar categoria y lo devuelve a view categorias
+just(".cancel-edit-category-btn").addEventListener("click", () =>
+  mostrarVista("section-view-categories")
+); //al apretar btn cancelar editar categoria te devuelve al view categorias
+just(".cancel-btn-edit-operation").addEventListener("click", () =>
+  mostrarVista("main-balance")
+); //apreta btn cancelar editar operacion y lo devuelve al view balance
+just(".btn-add-edition-operation").addEventListener("click", () =>
+  mostrarVista("main-balance")
+);
 
 //TRAER Y LLEVAR DATOS AL LS  ---NO SE SI FUNCIONA---
-const traerDatosDelLS = () => { //esto va a ir al LS y va a traer los datos que encuentre dentro
-    return JSON.parse(localStorage.getItem('walletInformation')) //aca estamos trayendo todo lo que este bajo esa key y con el JSON parse lo convertimos en un objeto ya que de otra manera devuelve solo un gran enorme string
-}
+const traerDatosDelLS = () => {
+  //esto va a ir al LS y va a traer los datos que encuentre dentro
+  return JSON.parse(localStorage.getItem("walletInformation")); //aca estamos trayendo todo lo que este bajo esa key y con el JSON parse lo convertimos en un objeto ya que de otra manera devuelve solo un gran enorme string
+};
 
 // const subirDatosAlLS = () => { //esto va a llevar los datos actualizados al LS
 //     localStorage.setItem('walletInformation')
 // }
 
 const traerCategorias = () => {
-    return traerDatosDelLS()?.categories // devuelve lo que encuentre en el LS bajo el nombre .categories, si no hay nada entonces que me muestre lo que hardcodeamos abajo en el array categories (se leeria como hay traerDatosSelLS ? entonces mostrame la que dice categories, sino solamente ignorame)
-}
-
-
-
+  return traerDatosDelLS()?.categories; // devuelve lo que encuentre en el LS bajo el nombre .categories, si no hay nada entonces que me muestre lo que hardcodeamos abajo en el array categories (se leeria como hay traerDatosSelLS ? entonces mostrame la que dice categories, sino solamente ignorame)
+};
 
 //CATEGORÍAS CARGADAS (YA SEA HARDCODEADO O LO QUE HAYA EN EL LS)
-let categories = traerCategorias () || [ //esto se lee como "che categories, traeme primero lo que haya en el LS y si no hay nada entonces mostrame esto hardcodeado" (si traerCategorias es falsy o null entonces pasa a la siguiente instruccion)
-    {
-        id: randomId(),
-        nombre: "Comida"
-    },
-    {
-        id: randomId(),
-        nombre: "Servicios"
-    },
-    {
-        id: randomId(),
-        nombre: "Salidas"
-    },
-    {
-        id: randomId(),
-        nombre: "Transporte"
-    },
-    {
-        id: randomId(),
-        nombre: "Educacion"
-    },
-    {
-        id: randomId(),
-        nombre: "Trabajo"
-    },
-]
-console.log(categories) //aca vamos a estar viendo si en definitiva habia algo en en LS o si se muestra lo hardcodeado
-
-
-
+let categories = traerCategorias() || [
+  //esto se lee como "che categories, traeme primero lo que haya en el LS y si no hay nada entonces mostrame esto hardcodeado" (si traerCategorias es falsy o null entonces pasa a la siguiente instruccion)
+  {
+    id: randomId(),
+    nombre: "Comida",
+  },
+  {
+    id: randomId(),
+    nombre: "Servicios",
+  },
+  {
+    id: randomId(),
+    nombre: "Salidas",
+  },
+  {
+    id: randomId(),
+    nombre: "Transporte",
+  },
+  {
+    id: randomId(),
+    nombre: "Educacion",
+  },
+  {
+    id: randomId(),
+    nombre: "Trabajo",
+  },
+];
+console.log(categories); //aca vamos a estar viendo si en definitiva habia algo en en LS o si se muestra lo hardcodeado
 
 // RECORRER Y AGREGAR CATEGORÍAS  ---FUNCIONA ✓---
 const listaCategorias = (category) => {
-    just('#list-categorie').innerHTML = ''
-    for (let {nombre, id} of category) {
-        just('#list-categorie').innerHTML += `
+  just("#list-categorie").innerHTML = "";
+  for (let { nombre, id } of category) {
+    just("#list-categorie").innerHTML += `
         <li class="tag has-text-weight-semibold is-flex is-justify-content-space-between">
                 <p>${nombre}</p>
                 <div class="column is-narrow has-text">
                 <a href="#" onclick="showEditCategory('${id}')" id="${id}" class="mr-4 is-size-7 edit-link btn-edition-category">Editar</a>
                 <a href="#" onclick="removeCategoryList('${id}')" id="${id}" class="is-size-7 delete-link">Eliminar</a>
                 </div>
-        </li>`
-    }
-}
-listaCategorias(categories)
-
-
-
-
+        </li>`;
+  }
+};
+listaCategorias(categories);
 
 //MUESTRA EDITAR CATEGORIA, OCULTA VIEW CATEGORIA Y TOMA NUEVO VALOR DEL INPUT Y LO EMPUJA A UNA FUNCION  ---FUNCIONA ✓---
-const showEditCategory = (identifier) => { //recibe como parametro un ID
-    just('#edit-categories').classList.remove("is-hidden") //le sacamos el hidden a la view de editar categoria
-    just('.section-view-categories').classList.add('is-hidden') //le ponemos el hidden a la view de categorias principal
-    let categorieToEdit = categories.filter((categoria) => categoria.id === identifier) //creamos una variable "categorias a editar" la cual guarde la condicion que del array categorias, filtre *en nuevo array* las categorias que pasen el filtro de que el id sea el mismo === que el que esta entrando como parametro `identifier` y que esas sean las categorias a editar (osea si haces click en comida, que no se modifique otra que no sea solo esa elegida)
-    just('#edition-categoria-input').value = categorieToEdit[0].nombre //llamamos al input donde se va a estar escribiendo la modificacion y accedemos a su value y lo ponemos como el reemplazo del item en la posicion 0 ya que nos estaba devolviendo un array
-    just('#edit-category-btn').addEventListener('click', ()=> categorieEdition(categorieToEdit[0].id))  //este evento va a ejecutar la funcion editar categoria
-}
+const showEditCategory = (identifier) => {
+  //recibe como parametro un ID
+  just("#edit-categories").classList.remove("is-hidden"); //le sacamos el hidden a la view de editar categoria
+  just(".section-view-categories").classList.add("is-hidden"); //le ponemos el hidden a la view de categorias principal
+  let categorieToEdit = categories.filter(
+    (categoria) => categoria.id === identifier
+  ); //creamos una variable "categorias a editar" la cual guarde la condicion que del array categorias, filtre *en nuevo array* las categorias que pasen el filtro de que el id sea el mismo === que el que esta entrando como parametro `identifier` y que esas sean las categorias a editar (osea si haces click en comida, que no se modifique otra que no sea solo esa elegida)
+  just("#edition-categoria-input").value = categorieToEdit[0].nombre; //llamamos al input donde se va a estar escribiendo la modificacion y accedemos a su value y lo ponemos como el reemplazo del item en la posicion 0 ya que nos estaba devolviendo un array
+  just("#edit-category-btn").addEventListener("click", () =>
+    categorieEdition(categorieToEdit[0].id)
+  ); //este evento va a ejecutar la funcion editar categoria
+};
 
 // FUNCION QUE ACTUALIZA AHORA EL NOMBRE QUE APARECE EN VIEW CATEGORY POR EL CAMBIO HECHO ANTERIORMENTE  ---FUNCIONA ✓---
-const categorieEdition = (identifier) => { //creamos una funcion que tome como parametro un id
-    const userChosenName = just('#edition-categoria-input').value //dentro creamos una variable que guarde el nuevo valor del input que pide editar la categoria
-    let newCategories = { //creamos un nuevo objeto con las categorias que existen
-        id: identifier, //conservamos el id que viene como parametro
-        nombre: userChosenName //y el nombre le pasamos la info ya obtenida anteriormente 
-    };
-    let newestCategory = categories.map((categoryOfArr) => categoryOfArr.id === identifier ? {...newCategories} :categoryOfArr) //creamos otra variable que guarde la modificacion y me cree un nuevo array con eso nuevo (todo esto lo hace .map) y dentro del map le decimos que a la categoria que tenga un id que sea igual al que estoy recibiendo como parametro, que modifique esa categoria por la nueva ingresada (osea que si se eligio comidas para modificar, que sea comidas quien se vea afectada y no otro valor -ya que comida original y comida a modificar tendrian el mismo id)
-        listaCategorias(newestCategory)
-}
-
-
+const categorieEdition = (identifier) => {
+  //creamos una funcion que tome como parametro un id
+  const userChosenName = just("#edition-categoria-input").value; //dentro creamos una variable que guarde el nuevo valor del input que pide editar la categoria
+  let newCategories = {
+    //creamos un nuevo objeto con las categorias que existen
+    id: identifier, //conservamos el id que viene como parametro
+    nombre: userChosenName, //y el nombre le pasamos la info ya obtenida anteriormente
+  };
+  let newestCategory = categories.map((categoryOfArr) =>
+    categoryOfArr.id === identifier ? { ...newCategories } : categoryOfArr
+  ); //creamos otra variable que guarde la modificacion y me cree un nuevo array con eso nuevo (todo esto lo hace .map) y dentro del map le decimos que a la categoria que tenga un id que sea igual al que estoy recibiendo como parametro, que modifique esa categoria por la nueva ingresada (osea que si se eligio comidas para modificar, que sea comidas quien se vea afectada y no otro valor -ya que comida original y comida a modificar tendrian el mismo id)
+  listaCategorias(newestCategory);
+};
 
 //HACER QUE TODOS LOS SELECT TENGAN LA MISMA INFO --- FUNCIONA ✓---
 const fillSelect = (arrayCategoria) => {
-    all(".category-select").forEach((select) => { //traemos a todos los select (el de filtro el de operacion y el de editar operacion) y le decimos, que por cada select que haya (son 3) le agregue una categoria (como?)     ------>
-        select.innerHTML = ""
-        for (let categoria of arrayCategoria){//<--- por cda categoria de categories (que es un array d objetos) +++se podria destructurar directamente escribiendo let {nombre, id} y luego no habria que poner abajo categoria.id sino simplemente id o nombre
-            select.innerHTML += `<option value="${categoria.id}">${categoria.nombre}</option>` //cree en el select con un innerHtml que sea un option value y q el valor de id y nombre lo traiga de lo que haya en ese objeto dentro del array select (linea 143)
-        }
-    })
-}
-fillSelect(categories)
+  all(".category-select").forEach((select) => {
+    //traemos a todos los select (el de filtro el de operacion y el de editar operacion) y le decimos, que por cada select que haya (son 3) le agregue una categoria (como?)     ------>
+    select.innerHTML = "";
+    for (let categoria of arrayCategoria) {
+      //<--- por cda categoria de categories (que es un array d objetos) +++se podria destructurar directamente escribiendo let {nombre, id} y luego no habria que poner abajo categoria.id sino simplemente id o nombre
+      select.innerHTML += `<option value="${categoria.id}">${categoria.nombre}</option>`; //cree en el select con un innerHtml que sea un option value y q el valor de id y nombre lo traiga de lo que haya en ese objeto dentro del array select (linea 143)
+    }
+  });
+};
+fillSelect(categories);
 just("#category-filter").addEventListener("change", () => {
-    console.log(just("#category-filter").value)
-})
+  console.log(just("#category-filter").value);
+});
 
 
 
@@ -146,100 +157,153 @@ just("#category-filter").addEventListener("change", () => {
 
 
 
-// const traerOperaciones = () => {
-//     return traerDatosDelLS()?.operations // devuelve lo que encuentre en el LS bajo el nombre .operations (se leeria como hay traerDatosSelLS ? entonces mostrame la que dice categories, sino solamente ignorame)
-// }
 
 
-//OPERACIONES
-let operations = [
-    
-]
 
-//CREA UNA NUEVA LISTA PARA CADA NUEVA OPERACION EN OPERACIONES VIEW  ---FUNCIONA ✓---
-const listOperations = (operation) => {
-// just('.nuevaoperacionbtn).foreach((nuevaoperacion) => )
-    just('.section-operation-created').innerHTML =""
-    for (let {id, desc, cat, date, amou} of operation) {
-        just('.section-operation-created').innerHTML += `
+
+
+
+
+
+
+
+
+//ARRAY QUE SE DEBE LLENAR CON CADA NUEVA OPERACION DEL USUARIO
+let operations = []
+// console.log(operations);
+
+
+// CREA UNA NUEVA LISTA PARA CADA NUEVA OPERACION EN OPERACIONES VIEW  ---FUNCIONA ✓---
+const listOperations = (operations) => {
+    const htmlForEachOperationList = just(".section-operation-created");
+    htmlForEachOperationList.innerHTML + "";
+    for (let { id, description, category, date, amount } of operations) {
+        just(".section-operation-created").innerHTML += `
         <div class="column-of-each-operation columns is-justify-content-space-between">
         <div class="column is-flex-wrap-wrap">
-        <p>${desc}</p>
+        <p>${description}</p>
         </div>
         <div class="column">
-        <p>${cat}</p>
+        <p>${category}</p>
         </div>
         <div class="column">
         <p>${date}</p>
         </div>
         <div class="column">
-        <p>${amou}</p>
+        <p>${amount}</p>
         </div>
         <div class="column has-text-right">
         <button onclick="editOperationList('${id}')" class="button is-text is-small edit-operation-btn" id="${id}">Editar</button>
         <button onclick="removeOperationList('${id}')" class="button is-text is-small delete-operation-btn" id="${id}">Eliminar</button>
         </div>
-        </div>`
+        </div>`;
     }
-}
-listOperations(operations)
+};
+listOperations(operations);
+
+
+//++++++++++++++++++++++++++++++++++++ SEPT 1 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+//funcion para traernos las operaciones guardadas en el LS
+const getStoredOperations = () => {
+    const storedOperationsLS = localStorage.getItem("operations"); //guardamos en una variable lainformacion que este bajo el nombre operations (como viene del LS viene como string)
+    return storedOperationsLS ? JSON.parse(storedOperationsLS) : []; //y aca decimos si storedOperationstiene informacion, entonces lo que tenga lo pase a un objeto
+};
+
+//++++++++++++++++++++++++++++++++++++ SEPT 2 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+//funcion para guardar la nueva operation en el LS
+const saveOperation = (operation) => {
+    const updatedOperations = getStoredOperations(); //aca guardamos en una variable local lo que haya guardadose en la funcion anterior donde nos traiamos y transformabamos la info del LS
+    updatedOperations.push(operation); //lo que hayamos obtenido ahora lo pusheamos a lo q entraria como parametro ()........
+    localStorage.setItem("operations", JSON.stringify(updatedOperations)); //y le decimos que devuelva al LS la operacion actualizada (lo nuevo que pusheamos al array) y pasada previamente a string
+};
+console.log(saveOperation())
+
+//++++++++++++++++++++++++++++++++++++ SEPT 3 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+const nuevaOperacion = () => {
+    const newOperation = {
+        id: randomId(),
+        description: just("#input-text-description").value,
+        category: just("#selects-for-type").value,
+        date: just("#input-date").value,
+        amount: just("#input-number-amount").value,
+    };
+return newOperation;
+};
+
+//++++++++++++++++++++++++++++++++++++ SEPT 4 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+just(".btn-add-new-operation").addEventListener("click", () => {
+  const operationsUserInfo = nuevaOperacion(); //guarda en una variable la info que se cargo en nueva operacion
+  saveOperation(operationsUserInfo); //esa informacion cargada se la pasa a la funcion saveOperation
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//por cada nueva operacion quiero que se agregue +1 objeto en el array de arriba
+// localStorage.clear()
+
+
+
+
+
+
+
+
+
+
 
 
 //FUNCIONALIDAD DE BTN EDITAR OPERACION  ---FUNCIONA ✓---
 const editOperationList = (indentifier) => {
-    just('.section-edit-new-operation').classList.remove('is-hidden')
-    just('.main-balance').classList.add('is-hidden')
-    let operationToEdit = operations.filter((operation) => operation.id === indentifier)
-    just('#input-text-description').value = operationToEdit[0].description
-    just('.edit-category-btn').addEventListener('click', ()=> operationsEdition(operationToEdit[0].id))
-}
-
-
-
-//AGREGAR UNA NUEVA OPERACION
-const nuevaOperacion = () => { //guardo en una variable mi objeto dinamico
-    const newOperation = { //en este objeto vamos a estar guardando la informacion que el usuario cargue
-        id:randomId(),
-        description:just('#input-text-description').value,
-        category:just('#selects-for-type').value,
-        date:just('#input-date').value,
-        amount:just('#input-number-amount').value,
-    }
-    localStorage.setItem('WalletInformation', JSON.stringify(newOperation)); //y dentro de la funcion hacemos el setitem para el LS de lo que se obtuvo en ese objeto (no se puede hacer fuera de la funcion por el scope)
-}
-just('.btn-add-new-operation').addEventListener('click', nuevaOperacion) //y le decimos que todo esto ocurra y se suba al LS cuando se le de click al btn aniadir
-
-const traerDatosDelLSOp = JSON.parse(localStorage.getItem('WalletInformation'));//estoy trayendo lo que subi al LS como objeto y lo guardo en una variable
-console.log(traerDatosDelLSOp)
-
-
-operations.push(traerDatosDelLSOp)
-console.log(operations)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  just(".section-edit-new-operation").classList.remove("is-hidden");
+  just(".main-balance").classList.add("is-hidden");
+  let operationToEdit = operations.filter(
+    (operation) => operation.id === indentifier
+  );
+  just("#input-text-description").value = operationToEdit[0].description;
+  just(".edit-category-btn").addEventListener("click", () =>
+    operationsEdition(operationToEdit[0].id)
+  );
+};
 
 // TRASH
 
 // just('#input-text-description').addEventListener('input', (event)=> seeValueInputText(event))
 // const seeValueInputText = (income) =>{
 //     income.target.value
-// } //CAPTURE LO QUE SE ESCRIBE 
+// } //CAPTURE LO QUE SE ESCRIBE
 
 // just('#input-number-amount').addEventListener('input', (event)=> seeValueInputNumber(event))
 // const seeValueInputNumber = (income) => {
@@ -251,12 +315,11 @@ console.log(operations)
 //     income.target.value
 // }//capture el tipo de gasto o ganancia
 
-
 // const www = () => {
 //     just('.section-operation-created').innerHTML += `
 //         <div class="column-of-each-operation columns is-justify-content-space-between">
 //             <div class="column is-flex-wrap-wrap">
-//                 <p>${seeValueInputText()}</p> 
+//                 <p>${seeValueInputText()}</p>
 //             </div>
 //             <div class="column">
 //                 <p>00000</p>
@@ -273,28 +336,3 @@ console.log(operations)
 //             </div>
 //         </div>`
 // }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
