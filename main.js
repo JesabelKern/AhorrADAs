@@ -156,27 +156,17 @@ just("#category-filter").addEventListener("change", () => {
 
 
 
+//++++++++++++++++++++++++++++++++++++ SEPT 1 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// Define the getStoredOperations function first
+const getStoredOperations = () => {
+    const storedOperationsLS = localStorage.getItem("operations");
+    return storedOperationsLS ? JSON.parse(storedOperationsLS) : [];
+};
 
-
-
-
-
-
-
-
-
-
-
-
-//ARRAY QUE SE DEBE LLENAR CON CADA NUEVA OPERACION DEL USUARIO
-let operations = []
-// console.log(operations);
-
-
+//++++++++++++++++++++++++++++++++++++ SEPT 2 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // CREA UNA NUEVA LISTA PARA CADA NUEVA OPERACION EN OPERACIONES VIEW  ---FUNCIONA ✓---
-const listOperations = (operations) => {
-    const htmlForEachOperationList = just(".section-operation-created");
-    htmlForEachOperationList.innerHTML + "";
+const listOperations = () => {
+    const operations = getStoredOperations();
     for (let { id, description, category, date, amount } of operations) {
         just(".section-operation-created").innerHTML += `
         <div class="column-of-each-operation columns is-justify-content-space-between">
@@ -199,28 +189,17 @@ const listOperations = (operations) => {
         </div>`;
     }
 };
-listOperations(operations);
 
-
-//++++++++++++++++++++++++++++++++++++ SEPT 1 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-//funcion para traernos las operaciones guardadas en el LS
-const getStoredOperations = () => {
-    const storedOperationsLS = localStorage.getItem("operations"); //guardamos en una variable lainformacion que este bajo el nombre operations (como viene del LS viene como string)
-    return storedOperationsLS ? JSON.parse(storedOperationsLS) : []; //y aca decimos si storedOperationstiene informacion, entonces lo que tenga lo pase a un objeto
-};
-
-//++++++++++++++++++++++++++++++++++++ SEPT 2 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
+//++++++++++++++++++++++++++++++++++++ SEPT 3 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //funcion para guardar la nueva operation en el LS
 const saveOperation = (operation) => {
     const updatedOperations = getStoredOperations(); //aca guardamos en una variable local lo que haya guardadose en la funcion anterior donde nos traiamos y transformabamos la info del LS
     updatedOperations.push(operation); //lo que hayamos obtenido ahora lo pusheamos a lo q entraria como parametro ()........
-    localStorage.setItem("operations", JSON.stringify(updatedOperations)); //y le decimos que devuelva al LS la operacion actualizada (lo nuevo que pusheamos al array) y pasada previamente a string
+    localStorage.setItem("operations", JSON.stringify(updatedOperations))
+; //y le decimos que devuelva al LS la operacion actualizada (lo nuevo que pusheamos al array) y pasada previamente a string
 };
-console.log(saveOperation())
 
-//++++++++++++++++++++++++++++++++++++ SEPT 3 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//++++++++++++++++++++++++++++++++++++ SEPT 4 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 const nuevaOperacion = () => {
     const newOperation = {
         id: randomId(),
@@ -229,57 +208,17 @@ const nuevaOperacion = () => {
         date: just("#input-date").value,
         amount: just("#input-number-amount").value,
     };
+    saveOperation(newOperation);
 return newOperation;
 };
 
-//++++++++++++++++++++++++++++++++++++ SEPT 4 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
+//++++++++++++++++++++++++++++++++++++ SEPT 5 and finished +++++++++++++++++++++++++++++++++++++++++++
 just(".btn-add-new-operation").addEventListener("click", () => {
-  const operationsUserInfo = nuevaOperacion(); //guarda en una variable la info que se cargo en nueva operacion
-  saveOperation(operationsUserInfo); //esa informacion cargada se la pasa a la funcion saveOperation
+    const operationsUserInfo = nuevaOperacion(); //guarda en una variable la info que se cargo en nueva operacion
+    listOperations(); //esa informacion cargada se la pasa a la funcion saveOperation
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//por cada nueva operacion quiero que se agregue +1 objeto en el array de arriba
-// localStorage.clear()
-
-
-
-
-
-
-
+//localStorage.clear()    // WHY IS NOT CLEANING THE INTERNAL STORAGE?
 
 
 
@@ -298,41 +237,36 @@ const editOperationList = (indentifier) => {
   );
 };
 
-// TRASH
 
-// just('#input-text-description').addEventListener('input', (event)=> seeValueInputText(event))
-// const seeValueInputText = (income) =>{
-//     income.target.value
-// } //CAPTURE LO QUE SE ESCRIBE
 
-// just('#input-number-amount').addEventListener('input', (event)=> seeValueInputNumber(event))
-// const seeValueInputNumber = (income) => {
-//     income.target.value
-// }//capture lo el monto
 
-// just('.selection-for-type').addEventListener('input', (event)=> seeValueSelect(event))
-// const seeValueSelect = (income) => {
-//     income.target.value
-// }//capture el tipo de gasto o ganancia
 
-// const www = () => {
-//     just('.section-operation-created').innerHTML += `
-//         <div class="column-of-each-operation columns is-justify-content-space-between">
-//             <div class="column is-flex-wrap-wrap">
-//                 <p>${seeValueInputText()}</p>
-//             </div>
-//             <div class="column">
-//                 <p>00000</p>
-//             </div>
-//             <div class="column">
-//                 <p>000000</p>
-//             </div>
-//             <div class="column">
-//                 <p>${seeValueInputNumber}</p>
-//             </div>
-//             <div class="column has-text-right">
-//                 <button class="button is-text is-small" id="${operations.id}">Editar</button>
-//                 <button class="button is-text is-small" id="${operations.id}">Eliminar</button>
-//             </div>
-//         </div>`
-// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
