@@ -159,13 +159,31 @@ just("#category-filter").addEventListener("change", () => {
 //++++++++++++++++++++++++++++++++++++ SEPT 1 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // Define the getStoredOperations function first
 const getStoredOperations = () => {
-    const storedOperationsLS = localStorage.getItem("operations");
-    return storedOperationsLS ? JSON.parse(storedOperationsLS) : [];
+    const storedOperationsLS = localStorage.getItem("operations") //guardamos en una variable lainformacion que este bajo el nombre operations (como viene del LS viene como string)
+    return storedOperationsLS ? JSON.parse(storedOperationsLS) : []  //y aca decimos si storedOperationstiene informacion, entonces lo que tenga lo pase a un objeto
 };
 
 //++++++++++++++++++++++++++++++++++++ SEPT 2 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 // CREA UNA NUEVA LISTA PARA CADA NUEVA OPERACION EN OPERACIONES VIEW  ---FUNCIONA ✓---
 const listOperations = () => {
+    just('.img-sin-operaciones').classList.add('is-hidden')
+    just(".section-operation-created").innerHTML = `<section class="column-of-new-operation columns is-justify-content-space-between">
+    <div class="column">
+        Descripcion
+    </div>
+    <div class="column">
+        Categoria
+    </div>
+    <div class="column">
+        Fecha
+    </div>
+    <div class="column">
+        Monto
+    </div>
+    <div class="column has-text-right">
+        Acciones
+    </div>
+    </section>` //le digo que cuando se ejecute al principio me tire esto primero
     const operations = getStoredOperations();
     for (let { id, description, category, date, amount } of operations) {
         just(".section-operation-created").innerHTML += `
@@ -183,20 +201,21 @@ const listOperations = () => {
         <p>${amount}</p>
         </div>
         <div class="column has-text-right">
-        <button onclick="editOperationList('${id}')" class="button is-text is-small edit-operation-btn" id="${id}">Editar</button>
+        <button  class="button is-text is-small edit-operation-btn" id="${id}">Editar</button>
         <button onclick="removeOperationList('${id}')" class="button is-text is-small delete-operation-btn" id="${id}">Eliminar</button>
         </div>
         </div>`;
-    }
+        }
 };
+
 
 //++++++++++++++++++++++++++++++++++++ SEPT 3 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 //funcion para guardar la nueva operation en el LS
 const saveOperation = (operation) => {
-    const updatedOperations = getStoredOperations(); //aca guardamos en una variable local lo que haya guardadose en la funcion anterior donde nos traiamos y transformabamos la info del LS
+    const updatedOperations = getStoredOperations() //aca guardamos en una variable local lo que haya guardadose en la funcion anterior donde nos traiamos y transformabamos la info del LS
     updatedOperations.push(operation); //lo que hayamos obtenido ahora lo pusheamos a lo q entraria como parametro ()........
     localStorage.setItem("operations", JSON.stringify(updatedOperations))
-; //y le decimos que devuelva al LS la operacion actualizada (lo nuevo que pusheamos al array) y pasada previamente a string
+    ; //y le decimos que devuelva al LS la operacion actualizada (lo nuevo que pusheamos al array) y pasada previamente a string
 };
 
 //++++++++++++++++++++++++++++++++++++ SEPT 4 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -208,8 +227,8 @@ const nuevaOperacion = () => {
         date: just("#input-date").value,
         amount: just("#input-number-amount").value,
     };
-    saveOperation(newOperation);
-return newOperation;
+    saveOperation(newOperation)
+    return newOperation
 };
 
 //++++++++++++++++++++++++++++++++++++ SEPT 5 and finished +++++++++++++++++++++++++++++++++++++++++++
@@ -224,32 +243,10 @@ just(".btn-add-new-operation").addEventListener("click", () => {
 
 
 
-//FUNCIONALIDAD DE BTN EDITAR OPERACION  ---FUNCIONA ✓---
-const editOperationList = (indentifier) => {
-  just(".section-edit-new-operation").classList.remove("is-hidden");
-  just(".main-balance").classList.add("is-hidden");
-  let operationToEdit = operations.filter(
-    (operation) => operation.id === indentifier
-  );
-  just("#input-text-description").value = operationToEdit[0].description;
-  just(".edit-category-btn").addEventListener("click", () =>
-    operationsEdition(operationToEdit[0].id)
-  );
-};
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+// A HACER:
+//         + UTILIDAD AL BOTON ELIMINAR OPERACION
+//         + ESCONDER LA IMG Y SPAN CUANDO SE AGREGE UNA OPERACION
 
 
 
