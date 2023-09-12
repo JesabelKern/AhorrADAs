@@ -1,3 +1,13 @@
+// // LOCAL STORAGE
+//                 // TRAER DATOS
+// const bringData = () => {
+//     return JSON.parse(localStorage.getItem("data"));
+// };
+//                 // SUBIR DATOS
+// const increaseData = (data) => {
+//     localStorage.setItem("data", JSON.stringify({ ...bringData(), ...categories }));
+// };
+
 // FUNCIONES REUTILIZABLES 
 
 const just = (selector) => document.querySelector(selector)
@@ -87,6 +97,7 @@ const categoriEdition = (id) => {
         listaCategorias(newestCategory)
 }
 
+// MOSTRAR Y OCULTAR VISTAS
 
 
 
